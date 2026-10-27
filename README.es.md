@@ -57,6 +57,7 @@ Quién participa: 🧠 tú en una sesión con el asistente · ⚙️ script del 
 ```
 kit/
 ├── COMECE-AQUI.md · USO-DEFENSIVO.md · CONFIGURA-COM-ASSISTENTE.md
+├── guia-rapido.pdf  el kit entero en PDF para leer e imprimir, en portugués (`python3 scripts/gera_pdf.py` lo rehace)
 ├── prompts/      01..09 (cada uno con el bloque FRONTEIRAS) + TODOS-OS-PROMPTS.md
 ├── guias/        1 escolha da rota · 2 hospedada · 3 runpod · 4 local · 5 ferramentas
 │                 6 segurança do modelo · 7 custo runpod · 8 problemas comuns

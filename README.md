@@ -69,6 +69,7 @@ Quem faz: 🧠 você numa sessão com o assistente · ⚙️ script do kit · �
 ```
 kit/
 ├── COMECE-AQUI.md · USO-DEFENSIVO.md · CONFIGURA-COM-ASSISTENTE.md
+├── guia-rapido.pdf  o kit inteiro em PDF para ler e imprimir (`python3 scripts/gera_pdf.py` refaz)
 ├── prompts/      01..09 (cada um com o bloco FRONTEIRAS) + TODOS-OS-PROMPTS.md
 ├── guias/        1 escolha da rota · 2 hospedada · 3 runpod · 4 local · 5 ferramentas
 │                 6 segurança do modelo · 7 custo runpod · 8 problemas comuns

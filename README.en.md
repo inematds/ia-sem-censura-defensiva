@@ -69,6 +69,7 @@ Who does what: 🧠 you in a session with the assistant · ⚙️ kit script · 
 ```
 kit/
 ├── COMECE-AQUI.md · USO-DEFENSIVO.md · CONFIGURA-COM-ASSISTENTE.md
+├── guia-rapido.pdf  the whole kit as a PDF to read and print, in Portuguese (`python3 scripts/gera_pdf.py` rebuilds it)
 ├── prompts/      01..09 (each with the FRONTEIRAS block) + TODOS-OS-PROMPTS.md
 ├── guias/        1 route choice · 2 hosted · 3 runpod · 4 local · 5 tools
 │                 6 model security · 7 runpod cost · 8 common problems

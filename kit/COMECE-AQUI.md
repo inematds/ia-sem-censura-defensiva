@@ -28,6 +28,8 @@ parte funciona, praticar num laboratório falso e não deixar a GPU cobrando à 
 
 ## O que tem aqui
 
+Prefere ler no papel? O kit inteiro está em [guia-rapido.pdf](guia-rapido.pdf) (os Markdown continuam sendo a versão editável).
+
 | Pasta / arquivo | Para quê |
 |---|---|
 | `prompts/` | 9 prompts em português, cada um com o bloco FRONTEIRAS |
