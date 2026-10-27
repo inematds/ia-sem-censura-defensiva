@@ -1,0 +1,28 @@
+{
+  "_leia": "Modelo de escopo. Copie para fora do repositório, preencha e só então use. Do jeito que está, o kit RECUSA.",
+  "finalidade": "teste defensivo autorizado",
+  "status": "NAO_AUTORIZADO",
+  "dono_do_sistema": "PREENCHA: nome de quem é dono do sistema",
+  "registro_da_permissao": "PREENCHA: onde está a permissão por escrito (e-mail, contrato, chamado)",
+  "quem_aprovou": "PREENCHA",
+  "data_da_aprovacao": "PREENCHA (AAAA-MM-DD)",
+  "alvos_permitidos": ["http://127.0.0.1:8181/"],
+  "fora_do_escopo": ["qualquer host, conta, subdomínio ou serviço que não esteja listado acima"],
+  "acoes_permitidas": ["uma requisição GET de leitura de cabeçalhos no laboratório sintético"],
+  "dados": "sinteticos",
+  "janela": {
+    "inicio": "2026-10-26T20:00:00-03:00",
+    "fim": "2026-10-26T20:30:00-03:00"
+  },
+  "limites": {
+    "max_requisicoes": 1,
+    "requisicoes_por_segundo": 1,
+    "duracao_max_segundos": 60
+  },
+  "condicoes_de_parada": [
+    "permissão ausente, vencida ou confusa",
+    "redirecionamento ou ferramenta saindo do alvo permitido",
+    "aparecer credencial real ou dado pessoal",
+    "qualquer escrita inesperada ou lentidão do serviço"
+  ]
+}

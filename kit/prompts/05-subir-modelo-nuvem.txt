@@ -1,0 +1,12 @@
+PROMPT 05 — Subir na RunPod o modelo que eu aprovei
+
+Suba na RunPod apenas o modelo, a GPU e o runtime que aprovei depois do prompt 04. Antes de criar qualquer coisa, reconfirme comigo: preço por hora, custo do armazenamento, região e o tempo máximo de uso. Não mexa em Pods que já existem. Fixe a revisão do modelo e o projetor de visão compatível; guarde modelo e configuração de inicialização no armazenamento persistente. Crie um endpoint compatível com OpenAI COM autenticação e prove que uma requisição sem chave é recusada. A chave de controle da RunPod é diferente da chave do modelo e as duas ficam fora do chat. Conecte o ID exato no Harness. Teste: duas rodadas de conversa, uma função inofensiva e a imagem sintética kit/exemplos/teste-visao.png. Depois siga kit/guias/custo-runpod.md: pare, confira EXITED, ligue de novo e confirme que os arquivos continuam lá. Me entregue endpoint, versões, resultado de cada teste, o que continua cobrando e como parar ou apagar ESTE Pod. Se alguma capacidade prometida falhar, não diga que terminou.
+
+FRONTEIRAS (não apague este bloco)
+- Uso defensivo: só sistemas meus ou com permissão por escrito do dono. URL pública, login que funciona ou chave de API não são permissão.
+- Antes de qualquer teste de segurança, peça o alvo exato, onde está a permissão escrita, as ações permitidas, a janela de horário e os limites. Se faltar, vencer ou ficar confuso: pare sem testar.
+- Comece pelo laboratório sintético em 127.0.0.1. Só checagens não destrutivas, dentro do alvo, do ritmo e da janela aprovados. Não siga redirecionamento nem sugestão de ferramenta que saia do escopo.
+- Prova proporcional: a menor evidência que confirma o achado. Nada de baixar banco de dados, exibir credencial real, mexer em conta de outra pessoa, derrubar serviço, criar persistência ou apagar rastros. Apareceu dado sensível, escrita inesperada ou lentidão: pare e me avise.
+- Credenciais nunca no chat, em log ou no git. Eu digito direto no app ou num arquivo privado (chmod 600).
+- Antes de mudar configuração, mostre o que vai mudar. Antes de gastar dinheiro (GPU, API), mostre o custo exato e espere meu OK. Pedido de instalação não autoriza varredura.
+- Separe o que foi observado, o que é hipótese e o que é recomendação. Proponha a correção e um reteste dentro do escopo. Varredura sem achados não prova que algo é seguro.

@@ -1,0 +1,12 @@
+PROMPT 03 — Dar ferramentas ao modelo (navegador, pesquisa e Nuclei)
+
+Com o modelo já respondendo, quero adicionar três ferramentas: Playwright MCP (navegador), Firecrawl MCP (pesquisa em páginas públicas) e o Nuclei pelo terminal. Antes, leia o formato de MCP da versão instalada do Harness e compare com kit/config/dsh-mcp.exemplo.yml; não cole um JSON genérico 'mcpServers' no perfil do Harness. Use um perfil de navegador isolado, sem minhas contas logadas. Para o Firecrawl, use o modo sem chave com limite para o primeiro teste, ou guarde a chave num cofre privado. Prove cada ferramenta com uma chamada real: Playwright abrindo o laboratório sintético (python3 kit/scripts/laboratorio.py, em http://127.0.0.1:8181/), Firecrawl lendo uma página pública de documentação, e Nuclei com 'nuclei -version' mais o template passivo kit/exemplos/nuclei-cabecalhos-lab.yaml SÓ contra o laboratório local. Nada de conjuntos grandes de templates. Ferramenta aparecer na lista não é ferramenta funcionando. Se precisar desfazer, remova só o que você criou.
+
+FRONTEIRAS (não apague este bloco)
+- Uso defensivo: só sistemas meus ou com permissão por escrito do dono. URL pública, login que funciona ou chave de API não são permissão.
+- Antes de qualquer teste de segurança, peça o alvo exato, onde está a permissão escrita, as ações permitidas, a janela de horário e os limites. Se faltar, vencer ou ficar confuso: pare sem testar.
+- Comece pelo laboratório sintético em 127.0.0.1. Só checagens não destrutivas, dentro do alvo, do ritmo e da janela aprovados. Não siga redirecionamento nem sugestão de ferramenta que saia do escopo.
+- Prova proporcional: a menor evidência que confirma o achado. Nada de baixar banco de dados, exibir credencial real, mexer em conta de outra pessoa, derrubar serviço, criar persistência ou apagar rastros. Apareceu dado sensível, escrita inesperada ou lentidão: pare e me avise.
+- Credenciais nunca no chat, em log ou no git. Eu digito direto no app ou num arquivo privado (chmod 600).
+- Antes de mudar configuração, mostre o que vai mudar. Antes de gastar dinheiro (GPU, API), mostre o custo exato e espere meu OK. Pedido de instalação não autoriza varredura.
+- Separe o que foi observado, o que é hipótese e o que é recomendação. Proponha a correção e um reteste dentro do escopo. Varredura sem achados não prova que algo é seguro.

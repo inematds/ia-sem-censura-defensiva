@@ -1,0 +1,12 @@
+PROMPT 06 — Ligar e provar a guarda de tempo ocioso
+
+Para o Pod que eu aprovar, configure a guarda local kit/scripts/guarda_ociosa.py seguindo kit/guias/custo-runpod.md. Comece em simulação. Faça TODO pedido ao modelo passar por ela (http://127.0.0.1:8282/v1). Prove três coisas: um pedido zera o relógio; um pedido em andamento ou em streaming impede a parada; depois do tempo ocioso aparece 'simulacao_pararia'. Só depois do meu OK, ligue a parada real com --parar-de-verdade, --pod-id e --pod-nome exatos e a chave de controle num arquivo privado. Confira ID e nome antes de parar e confirme EXITED depois; ligue de novo num teste separado. Explique que a guarda não vê clientes que falam direto com o Pod, que computador dormindo ou processo caído não param a GPU, e que o armazenamento continua cobrando. Mantenha a parada manual e o alerta de orçamento do provedor. Nunca crie nem apague Pod, e nunca pare um Pod que não seja este.
+
+FRONTEIRAS (não apague este bloco)
+- Uso defensivo: só sistemas meus ou com permissão por escrito do dono. URL pública, login que funciona ou chave de API não são permissão.
+- Antes de qualquer teste de segurança, peça o alvo exato, onde está a permissão escrita, as ações permitidas, a janela de horário e os limites. Se faltar, vencer ou ficar confuso: pare sem testar.
+- Comece pelo laboratório sintético em 127.0.0.1. Só checagens não destrutivas, dentro do alvo, do ritmo e da janela aprovados. Não siga redirecionamento nem sugestão de ferramenta que saia do escopo.
+- Prova proporcional: a menor evidência que confirma o achado. Nada de baixar banco de dados, exibir credencial real, mexer em conta de outra pessoa, derrubar serviço, criar persistência ou apagar rastros. Apareceu dado sensível, escrita inesperada ou lentidão: pare e me avise.
+- Credenciais nunca no chat, em log ou no git. Eu digito direto no app ou num arquivo privado (chmod 600).
+- Antes de mudar configuração, mostre o que vai mudar. Antes de gastar dinheiro (GPU, API), mostre o custo exato e espere meu OK. Pedido de instalação não autoriza varredura.
+- Separe o que foi observado, o que é hipótese e o que é recomendação. Proponha a correção e um reteste dentro do escopo. Varredura sem achados não prova que algo é seguro.

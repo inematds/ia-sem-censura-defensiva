@@ -1,0 +1,7 @@
+{
+  "_leia": "Formato genérico 'mcpServers' para clientes que aceitam esse formato. NÃO cole no perfil do Harness: lá use dsh-mcp.exemplo.yml.",
+  "mcpServers": {
+    "navegador": { "command": "npx", "args": ["-y", "@playwright/mcp@0.0.83", "--isolated"] },
+    "pesquisa": { "url": "https://mcp.firecrawl.dev/v2/mcp" }
+  }
+}

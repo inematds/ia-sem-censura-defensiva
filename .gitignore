@@ -1,0 +1,10 @@
+# segredos nunca entram no repositório
+.env
+*.key
+.segredos/
+escopo*.json
+!kit/exemplos/escopo-autorizado.exemplo.json
+__pycache__/
+*.pyc
+guia/assets/*.png
+!guia/assets/hero.png

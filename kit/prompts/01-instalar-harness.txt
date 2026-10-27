@@ -1,0 +1,12 @@
+PROMPT 01 — Instalar (ou reaproveitar) o DeepSeek Harness
+
+Quero usar o DeepSeek Harness (https://github.com/deepseek-ai/deepseek-harness) para estudo de segurança defensiva. Primeiro olhe o que já existe: meu sistema operacional, a versão do Node.js e se o Harness já está instalado. Se já estiver funcionando, reaproveite; não atualize nem sobrescreva configurações sem me perguntar. Leia o README e o SAFETY.md do projeto. Crie uma pasta de trabalho só para testes, longe dos meus arquivos pessoais, e me mostre o plano de instalação antes de executar. Suba a interface só em 127.0.0.1, adicione apenas essa pasta de teste e confirme que a tela abre. No fim, me diga: versão instalada, endereço local, como ligar e desligar e quais arquivos foram alterados.
+
+FRONTEIRAS (não apague este bloco)
+- Uso defensivo: só sistemas meus ou com permissão por escrito do dono. URL pública, login que funciona ou chave de API não são permissão.
+- Antes de qualquer teste de segurança, peça o alvo exato, onde está a permissão escrita, as ações permitidas, a janela de horário e os limites. Se faltar, vencer ou ficar confuso: pare sem testar.
+- Comece pelo laboratório sintético em 127.0.0.1. Só checagens não destrutivas, dentro do alvo, do ritmo e da janela aprovados. Não siga redirecionamento nem sugestão de ferramenta que saia do escopo.
+- Prova proporcional: a menor evidência que confirma o achado. Nada de baixar banco de dados, exibir credencial real, mexer em conta de outra pessoa, derrubar serviço, criar persistência ou apagar rastros. Apareceu dado sensível, escrita inesperada ou lentidão: pare e me avise.
+- Credenciais nunca no chat, em log ou no git. Eu digito direto no app ou num arquivo privado (chmod 600).
+- Antes de mudar configuração, mostre o que vai mudar. Antes de gastar dinheiro (GPU, API), mostre o custo exato e espere meu OK. Pedido de instalação não autoriza varredura.
+- Separe o que foi observado, o que é hipótese e o que é recomendação. Proponha a correção e um reteste dentro do escopo. Varredura sem achados não prova que algo é seguro.

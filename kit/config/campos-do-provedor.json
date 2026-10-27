@@ -1,0 +1,11 @@
+{
+  "_leia": "Folha de preenchimento para Settings > Models > Custom model API do DeepSeek Harness. Não é arquivo de importação.",
+  "id_do_provedor": "defensivo-local",
+  "nome_na_tela": "Modelo defensivo local",
+  "protocolo": "openai-completions",
+  "url_base": "http://127.0.0.1:1234/v1",
+  "id_do_modelo": "COPIE_O_ID_QUE_O_SERVIDOR_DEVOLVE_EM_/v1/models",
+  "credencial": "digite direto no app ou guarde em arquivo privado; nunca neste arquivo",
+  "janela_de_contexto": "use o valor da documentação do modelo/runtime; não chute",
+  "entrada_de_imagem": "ligue só depois que o teste de imagem sintética passar"
+}

@@ -1,0 +1,12 @@
+PROMPT 08 — Ligar o modelo local do LM Studio ao Harness
+
+Use o modelo local que aprovei no LM Studio e ligue ao DeepSeek Harness. Confira as versões do LM Studio e do runtime. Reaproveite o que já foi baixado, escolha um contexto modesto que caiba com folga e deixe o servidor preso em 127.0.0.1. Confirme com quem publicou o modelo qual projetor de visão combina com ele. Adicione um provedor separado no Harness sem apagar o que existe. Rode kit/scripts/checa_endpoint.py com o ID exato do modelo e --funcao; se eu precisar de imagem, rode também com --imagem kit/exemplos/teste-visao.png. Não dê terminal nem acesso livre a arquivos ao modelo só para testar chamada de função. Informe os tempos observados junto com hardware, contexto e limite de saída, sem chamar isso de benchmark. Me dê os comandos para descarregar o modelo e parar o servidor, e desligue tudo no fim se eu pedir.
+
+FRONTEIRAS (não apague este bloco)
+- Uso defensivo: só sistemas meus ou com permissão por escrito do dono. URL pública, login que funciona ou chave de API não são permissão.
+- Antes de qualquer teste de segurança, peça o alvo exato, onde está a permissão escrita, as ações permitidas, a janela de horário e os limites. Se faltar, vencer ou ficar confuso: pare sem testar.
+- Comece pelo laboratório sintético em 127.0.0.1. Só checagens não destrutivas, dentro do alvo, do ritmo e da janela aprovados. Não siga redirecionamento nem sugestão de ferramenta que saia do escopo.
+- Prova proporcional: a menor evidência que confirma o achado. Nada de baixar banco de dados, exibir credencial real, mexer em conta de outra pessoa, derrubar serviço, criar persistência ou apagar rastros. Apareceu dado sensível, escrita inesperada ou lentidão: pare e me avise.
+- Credenciais nunca no chat, em log ou no git. Eu digito direto no app ou num arquivo privado (chmod 600).
+- Antes de mudar configuração, mostre o que vai mudar. Antes de gastar dinheiro (GPU, API), mostre o custo exato e espere meu OK. Pedido de instalação não autoriza varredura.
+- Separe o que foi observado, o que é hipótese e o que é recomendação. Proponha a correção e um reteste dentro do escopo. Varredura sem achados não prova que algo é seguro.

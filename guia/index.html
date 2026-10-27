@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IA sem censura, do jeito certo — seu próprio modelo para segurança defensiva</title>
+<meta name="description" content="Kit gratuito do INEMA: ligue um modelo abliterated ao DeepSeek Harness por API, GPU na RunPod ou LM Studio local, teste texto, função e imagem, pratique num laboratório sintético e controle o custo — sempre com escopo autorizado.">
+<link rel="alternate" hreflang="pt-BR" href="https://inematds.github.io/ia-sem-censura-defensiva/guia/">
+<link rel="alternate" hreflang="en" href="https://inematds.github.io/ia-sem-censura-defensiva/guia/en/">
+<link rel="alternate" hreflang="es" href="https://inematds.github.io/ia-sem-censura-defensiva/guia/es/">
+<meta property="og:image" content="https://inematds.github.io/ia-sem-censura-defensiva/guia/assets/banner.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0c0c10; --bg2:#14141b; --card:#16161e; --line:#272730;
+    --txt:#e9e9ee; --mut:#9a9aa6; --amb:#E2A23B; --amb2:#f0c070; --sky:#38bdf8; --pro:#cbd5e1; --bad:#F0918A;
+    color-scheme:dark;
+  }
+  body.light{
+    --bg:#f6f7f9; --bg2:#eceef2; --card:#ffffff; --line:#e1e3ea;
+    --txt:#1a1a22; --mut:#5b5b68; --amb:#b9791d; --amb2:#a16207; --sky:#0369a1; --pro:#b45309; --bad:#b42318;
+    color-scheme:light;
+  }
+  body.light .hero .glow{opacity:.5}
+  body.light pre{background:#0e0e14;color:#d6d6e0}
+  body.light pre .c{color:#8a8a98}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--txt);font:16px/1.65 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:Sora,sans-serif;line-height:1.15;margin:0}
+  a{color:var(--amb);text-decoration:none}
+  code,pre{font-family:"JetBrains Mono",monospace}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+  .mut{color:var(--mut)} .amb{color:var(--amb)}
+  .chip{display:inline-block;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amb);font-weight:600;font-family:Sora}
+  nav{position:sticky;top:0;z-index:30;backdrop-filter:blur(12px);background:rgba(12,12,16,.78);border-bottom:1px solid var(--line)}
+  body.light nav{background:rgba(246,247,249,.85)}
+  nav .wrap{display:flex;align-items:center;gap:22px;height:60px}
+  nav .brand{display:flex;align-items:center;gap:8px;font-family:Sora;font-weight:800;letter-spacing:-.02em;color:var(--amb)}
+  nav .brand .emoji{font-size:1.25rem}
+  nav .sep{color:var(--mut);opacity:.45}
+  nav .inema{color:var(--sky);font-weight:600;font-size:.88rem;font-family:Sora}
+  nav .inema:hover{filter:brightness(1.15)}
+  nav .pro{color:var(--pro);font-weight:600;font-size:.88rem;font-family:Sora}
+  nav .pro:hover{filter:brightness(1.15)}
+  nav .clubpro{display:inline-flex;align-items:center;gap:6px}
+  nav .links{margin-left:auto;display:flex;align-items:center;gap:20px;font-size:.92rem}
+  nav .links a.sec{color:var(--mut)} nav .links a.sec:hover{color:var(--txt)}
+  .lang{display:inline-flex;gap:2px;font-family:Sora;font-size:.78rem}
+  .lang a{color:var(--mut);padding:.2em .45em;border-radius:6px} .lang a.on{color:var(--amb);background:rgba(226,162,59,.12)}
+  .tgl{background:var(--bg2);border:1px solid var(--line);color:var(--txt);width:38px;height:38px;border-radius:10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:1.05rem}
+  .tgl:hover{border-color:var(--amb)}
+  .btn{display:inline-block;background:var(--amb);color:#1a1206;font-weight:600;padding:.6em 1.05em;border-radius:10px;font-family:Sora}
+  .btn.ghost{background:transparent;color:var(--txt);border:1px solid var(--line)}
+  @media(max-width:900px){nav .links a.sec{display:none}}
+  @media(max-width:520px){nav .wrap{gap:8px;padding:8px 14px;height:auto;flex-wrap:wrap} nav .links{gap:8px;margin-left:0;width:100%;justify-content:space-between} nav .btn{padding:.45em .7em;font-size:.82rem} .tgl{width:34px;height:34px}}
+  .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+  .hero .glow{position:absolute;inset:-40% -20% auto auto;width:70%;height:600px;background:radial-gradient(closest-side,rgba(226,162,59,.22),transparent 70%);pointer-events:none}
+  .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:74px 22px}
+  .hero h1{font-size:clamp(2.2rem,5vw,3.5rem);font-weight:800;letter-spacing:-.025em}
+  .hero p.lead{font-size:1.18rem;color:var(--mut);margin:1.1em 0 1.6em;max-width:34ch}
+  .hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+  .hero figure{margin:0;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px -30px #000}
+  .hero figure img{width:100%;height:auto;display:block}
+  .resumo{padding:38px 0 34px;border-bottom:1px solid var(--line)}
+  .resumo p{font-size:1.12rem;line-height:1.7;max-width:74ch;margin:.55em 0 0}
+  @media(max-width:780px){.hero .wrap{grid-template-columns:1fr;padding:48px 22px}}
+  section{padding:62px 0;border-bottom:1px solid var(--line)}
+  section h2{font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:800;letter-spacing:-.02em}
+  section .sub{color:var(--mut);margin:.6em 0 2em;max-width:62ch}
+  .grid{display:grid;gap:16px}
+  .g3{grid-template-columns:repeat(3,1fr)} .g4{grid-template-columns:repeat(4,1fr)} .g2{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:820px){.g3,.g4{grid-template-columns:1fr 1fr}}
+  @media(max-width:540px){.g2,.g3,.g4{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .card h3{font-size:1.05rem;margin-bottom:.4em}
+  .card p{color:var(--mut);font-size:.92rem;margin:0}
+  .card ul{color:var(--mut);font-size:.92rem;margin:.4em 0 0;padding-left:1.1em}
+  .card.alerta{border-left:4px solid var(--bad)}
+  .num{display:inline-flex;width:30px;height:30px;align-items:center;justify-content:center;border-radius:8px;background:rgba(226,162,59,.14);color:var(--amb);font-family:Sora;font-weight:800;font-size:.9rem;margin-bottom:.7em}
+  .flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
+  .flow span{background:var(--bg2);border:1px solid var(--line);border-radius:999px;padding:.45em .9em;font-size:.85rem;font-family:Sora;font-weight:600}
+  .flow .arr{color:var(--amb);border:none;background:none;padding:0 .1em}
+  pre{background:#0a0a0e;border:1px solid var(--line);border-radius:12px;padding:16px 18px;overflow:auto;font-size:.86rem;line-height:1.6;color:#d6d6e0}
+  pre .c{color:#6f6f7c} pre .k{color:var(--amb2)} pre .s{color:#9ece6a}
+  .step{display:grid;grid-template-columns:46px minmax(0,1fr);gap:16px;margin-bottom:26px}
+  .step>div,.card{min-width:0}
+  p code,li code,td code{overflow-wrap:anywhere}
+  .step .b{width:46px;height:46px;border-radius:12px;background:var(--amb);color:#1a1206;font-family:Sora;font-weight:800;font-size:1.25rem;display:flex;align-items:center;justify-content:center}
+  .step h3{font-size:1.12rem;margin-bottom:.3em}
+  .step p{color:var(--mut);margin:.2em 0 .7em}
+  .ex{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media(max-width:680px){.ex{grid-template-columns:1fr}}
+  .ex figure{margin:0;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+  .ex figure img{width:100%;height:auto;display:block}
+  .ex figcaption{padding:12px 14px;font-size:.88rem;color:var(--mut);background:var(--card)}
+  .phase{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--line)}
+  .phase:last-child{border:none}
+  .phase .tag{flex:0 0 112px;font-family:Sora;font-weight:800;color:var(--amb)}
+  .phase .tag.nao{color:var(--mut)}
+  .phase .d strong{display:block;margin-bottom:.2em}
+  .phase .d span{color:var(--mut);font-size:.92rem}
+  @media(max-width:540px){.phase{flex-direction:column;gap:4px}.phase .tag{flex:none}}
+  .video{aspect-ratio:16/9;border:1px dashed var(--line);border-radius:14px;display:flex;align-items:center;justify-content:center;color:var(--mut);background:var(--card);text-align:center;padding:20px}
+  footer{padding:46px 0;text-align:center;color:var(--mut);font-size:.9rem}
+  .pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:.3em .8em;font-size:.78rem;color:var(--mut);margin:4px}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="brand" href="#top"><span class="emoji">🛡️</span> IA sem censura</a>
+  <span class="sep">|</span>
+  <span class="clubpro">
+    <a class="inema" href="https://inema.club" target="_blank" rel="noopener">INEMA.CLUB</a>
+    <span class="sep">-</span>
+    <a class="pro" href="https://inema.pro" target="_blank" rel="noopener">PRO</a>
+  </span>
+  <div class="links">
+    <a class="sec" href="#oque">O que é</a>
+    <a class="sec" href="#rotas">Rotas</a>
+    <a class="sec" href="#guia">Guia de uso</a>
+    <a class="sec" href="#fronteiras">Fronteiras</a>
+    <a class="sec" href="#status">Status</a>
+    <span class="lang"><a class="on" href="./">PT</a><a href="en/">EN</a><a href="es/">ES</a></span>
+    <button class="tgl" id="themeToggle" aria-label="Alternar tema" title="Alternar tema">🌙</button>
+    <a class="btn" href="https://github.com/inematds/ia-sem-censura-defensiva" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</div></nav>
+
+<header class="hero" id="top">
+  <div class="glow"></div>
+  <div class="wrap">
+    <div>
+      <span class="chip">Kit INEMA · segurança defensiva</span>
+      <h1>IA sem censura, do <span class="amb">jeito certo</span></h1>
+      <p class="lead">Seu próprio modelo, sem sermão, para examinar o que é seu — com escopo registrado, laboratório falso e a GPU parada quando você não está usando.</p>
+      <div class="cta">
+        <a class="btn" href="#guia">Começar o guia</a>
+        <a class="btn ghost" href="https://github.com/inematds/ia-sem-censura-defensiva" target="_blank" rel="noopener">Ver no GitHub</a>
+      </div>
+    </div>
+    <figure><img src="assets/banner.jpg" alt="Banner: IA sem censura defensiva — seu próprio modelo para proteger o que é seu; API hospedada, GPU na RunPod, local no LM Studio"></figure>
+  </div>
+</header>
+
+<section id="resumo" class="resumo"><div class="wrap">
+  <span class="chip">Em resumo</span>
+  <p>Este é um kit gratuito do INEMA, em português, para quem estuda segurança e quer um modelo de IA aberto que não recuse perguntas técnicas — os chamados modelos <em>abliterated</em>, dos quais a recusa foi removida. Ele mostra como ligar esse modelo ao DeepSeek Harness (um agente de código aberto) por uma API, por uma GPU alugada na RunPod ou pelo LM Studio no seu computador. Traz prompts prontos, scripts que provam se texto, ferramenta e imagem funcionam, um laboratório falso para treinar e uma guarda que para a GPU ociosa. Você precisa de um assistente que leia arquivos, Python 3.10+ e, conforme a rota, uma conta de API ou de GPU — e de permissão para tudo o que for testar.</p>
+</div></section>
+
+<section id="oque"><div class="wrap">
+  <span class="chip">O que é</span>
+  <h2>Um modelo que não recusa, com cercas que você controla</h2>
+  <p class="sub">Tirar a recusa do modelo não tira a responsabilidade: ela passa para o escopo, o laboratório e as permissões que você dá. O kit traz as três coisas prontas.</p>
+  <figure style="margin:0 0 26px;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px -30px #000"><img src="assets/banner-grade.jpg" alt="Banner com seis cartões: API hospedada, GPU na RunPod, local no LM Studio, ferramentas MCP, laboratório sintético, escopo autorizado" loading="lazy" style="width:100%;display:block"></figure>
+  <div class="grid g3">
+    <div class="card"><h3>🧭 Três rotas, um teste</h3><p>API hospedada, GPU na RunPod ou LM Studio local. Em todas, o mesmo checador prova texto em dois turnos, uma função inofensiva e a leitura de uma imagem — cada um separado.</p></div>
+    <div class="card"><h3>🧪 Laboratório antes do mundo</h3><p>Uma página falsa em 127.0.0.1 com dois achados de configuração. A checagem só roda com arquivo de escopo válido, faz uma requisição e recusa qualquer host remoto.</p></div>
+    <div class="card"><h3>💸 GPU não fica ligada à toa</h3><p>Uma guarda local mede o tempo sem uso e, se você mandar, para o seu Pod conferindo ID e nome — começando em simulação e confirmando EXITED.</p></div>
+  </div>
+</div></section>
+
+<section id="rotas"><div class="wrap">
+  <span class="chip">Como funciona</span>
+  <h2>Escolha a rota, prove cada camada, só então use</h2>
+  <p class="sub">A ordem é sempre a mesma: escopo e laboratório primeiro, uma capacidade por vez, custo sob controle.</p>
+  <div class="flow">
+    <span>Ler as fronteiras</span><span class="arr">→</span>
+    <span>Escolher a rota</span><span class="arr">→</span>
+    <span>Ligar ao Harness</span><span class="arr">→</span>
+    <span>Testar texto · função · imagem</span><span class="arr">→</span>
+    <span>Ferramentas MCP</span><span class="arr">→</span>
+    <span>Laboratório sintético</span><span class="arr">→</span>
+    <span>Seu app, com escopo</span>
+  </div>
+  <div class="grid g3" style="margin-top:26px">
+    <div class="card"><h3>☁️ API hospedada</h3><p>Menos passos, sem GPU. Você paga o uso da API (assinatura de chat não inclui). Exemplos de provedor: Abliteration e OrcaRouter.</p><ul><li>Prompts 01 → 02 → 03 → 09</li></ul></div>
+    <div class="card"><h3>🖥️ GPU na RunPod</h3><p>Você escolhe modelo e runtime. Paga hora de GPU e armazenamento. Exemplo: Huihui Qwen3.5 9B abliterated Q6_K com projetor de visão.</p><ul><li>Prompts 01 → 04 → 05 → 06 → 03 → 09</li></ul></div>
+    <div class="card"><h3>💻 Local no LM Studio</h3><p>Sem conta de GPU, se a máquina aguentar. Exemplo: Huihui Qwen3.6 35B-A3B abliterated Q4_K (~21,7 GB + ~0,9 GB de projetor).</p><ul><li>Prompts 01 → 07 → 08 → 03 → 09</li></ul></div>
+  </div>
+  <p class="mut" style="margin-top:18px;font-size:.9rem">Modelos e preços conferidos em 26/10/2026. Mudam: confira antes de baixar ou alugar.</p>
+</div></section>
+
+<section id="pre"><div class="wrap">
+  <span class="chip">Pré-requisitos</span>
+  <h2>O que precisa estar na sua mesa</h2>
+  <p class="sub">Os scripts do kit usam só a biblioteca padrão do Python. O resto depende da rota.</p>
+  <div class="grid g3">
+    <div class="card"><h3>Python 3.10+ e git</h3><p>Para baixar o kit e rodar os scripts e testes.</p><pre><span class="k">git clone</span> <span class="s">https://github.com/inematds/ia-sem-censura-defensiva</span>
+<span class="k">cd</span> ia-sem-censura-defensiva
+<span class="k">python3</span> kit/scripts/doutor.py</pre></div>
+    <div class="card"><h3>Um assistente que lê arquivos</h3><p>Claude Code, Codex ou similar. Ele segue os prompts e mostra antes de fazer. Node.js na versão que o Harness pedir.</p></div>
+    <div class="card"><h3>Conta conforme a rota</h3><p>API: conta e crédito no provedor. RunPod: conta e crédito. Local: memória livre e disco. Nenhuma assinatura de chat inclui API ou GPU.</p></div>
+  </div>
+</div></section>
+
+<section id="guia"><div class="wrap">
+  <span class="chip">Guia de uso · passo a passo</span>
+  <h2>Do zero ao primeiro achado no laboratório</h2>
+  <p class="sub">Os passos 1 a 4 rodam hoje, sem conta nenhuma. Do 5 em diante, siga os prompts da sua rota.</p>
+
+  <div class="step"><div class="b">1</div><div>
+    <h3>Baixe o kit e confira a máquina</h3>
+    <p>O doutor só lê versões e portas; não instala nada e não abre chave.</p>
+<pre><span class="k">git clone</span> <span class="s">https://github.com/inematds/ia-sem-censura-defensiva</span> && <span class="k">cd</span> ia-sem-censura-defensiva
+<span class="k">python3</span> kit/scripts/doutor.py</pre>
+  </div></div>
+
+  <div class="step"><div class="b">2</div><div>
+    <h3>Rode os testes offline</h3>
+    <p>25 testes em 127.0.0.1, com servidores falsos: escopo negado, alvo remoto recusado, escopo vencido, achado e correção, proxy sem token, relógio ocioso e falha de parada.</p>
+<pre><span class="k">python3</span> -m unittest discover -s kit/testes -v   <span class="c"># Ran 25 tests ... OK</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">3</div><div>
+    <h3>Ligue o laboratório e faça a checagem com escopo</h3>
+    <p>Dois terminais. A checagem cria um escopo de 10 minutos só para o seu laboratório, faz uma requisição e lista os achados.</p>
+<pre><span class="c"># terminal 1</span>
+<span class="k">python3</span> kit/scripts/laboratorio.py
+<span class="c"># terminal 2</span>
+<span class="k">python3</span> kit/scripts/checagem_segura.py --lab-local-autorizado
+<span class="c"># "achados": X-Content-Type-Options e Referrer-Policy ausentes</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">4</div><div>
+    <h3>Corrija e reteste</h3>
+    <p>Pare o laboratório (Ctrl+C), ligue a versão corrigida e repita a mesma checagem. Use o <a href="https://github.com/inematds/ia-sem-censura-defensiva/blob/main/kit/exemplos/relatorio-de-achados.exemplo.md">modelo de relatório</a> para separar evidência, hipótese e correção.</p>
+<pre><span class="k">python3</span> kit/scripts/laboratorio.py --corrigido
+<span class="k">python3</span> kit/scripts/checagem_segura.py --lab-local-autorizado   <span class="c"># "achados": []</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">5</div><div>
+    <h3>Entregue o kit ao seu assistente</h3>
+    <p>Abra <a href="https://github.com/inematds/ia-sem-censura-defensiva/blob/main/kit/CONFIGURA-COM-ASSISTENTE.md">CONFIGURA-COM-ASSISTENTE.md</a>, copie o pedido e cole no Claude Code (ou similar) aberto na pasta do kit. Ele pergunta a rota, a memória livre e o orçamento.</p>
+  </div></div>
+
+  <div class="step"><div class="b">6</div><div>
+    <h3>Ligue o modelo pela sua rota</h3>
+    <p>Siga os <a href="https://github.com/inematds/ia-sem-censura-defensiva/tree/main/kit/prompts">prompts numerados</a>. Na rota local, o servidor fica preso em 127.0.0.1:</p>
+<pre><span class="k">lms load</span> SEU-MODELO --context-length 4096 --identifier defensivo-local --ttl 600
+<span class="k">lms server start</span> --bind 127.0.0.1 --port 1234</pre>
+  </div></div>
+
+  <div class="step"><div class="b">7</div><div>
+    <h3>Prove texto, função e imagem</h3>
+    <p>A chave (se houver) vem de um arquivo privado; nunca do chat. Cada capacidade sai como resultado separado.</p>
+<pre><span class="c"># só para API ou nuvem; endpoint local não precisa</span>
+<span class="k">export</span> INEMA_CHAVE_MODELO_ARQ=~/.segredos/chave-modelo   <span class="c"># arquivo com chmod 600</span>
+<span class="k">python3</span> kit/scripts/checa_endpoint.py --base-url http://127.0.0.1:1234/v1 \
+  --modelo defensivo-local --funcao --imagem kit/exemplos/teste-visao.png</pre>
+  </div></div>
+
+  <div class="step"><div class="b">8</div><div>
+    <h3>Dê ferramentas, uma de cada vez</h3>
+    <p>Navegador (Playwright MCP), pesquisa (Firecrawl MCP) e Nuclei, cada um provado com uma chamada real — o Nuclei só contra o laboratório, com o template passivo do kit.</p>
+<pre><span class="k">nuclei</span> -u http://127.0.0.1:8181/ -t kit/exemplos/nuclei-cabecalhos-lab.yaml -rl 1 -c 1</pre>
+  </div></div>
+
+  <div class="step"><div class="b">9</div><div>
+    <h3>Na RunPod: guarda ociosa em simulação</h3>
+    <p>Todo pedido passa pela guarda em 127.0.0.1:8282, com token local. Só depois de ver <code>simulacao_pararia</code> você liga a parada real, com ID e nome exatos do Pod. Confira EXITED no painel.</p>
+<pre><span class="k">export</span> INEMA_TOKEN_LOCAL_ARQ=~/.segredos/token-guarda
+<span class="k">python3</span> kit/scripts/guarda_ociosa.py --upstream <span class="s">https://SEU-ENDPOINT/v1</span> --ocioso 900</pre>
+  </div></div>
+
+  <div class="step"><div class="b">10</div><div>
+    <h3>Seu app, só com escopo escrito</h3>
+    <p>Preencha uma cópia de <a href="https://github.com/inematds/ia-sem-censura-defensiva/blob/main/kit/exemplos/escopo-autorizado.exemplo.json">escopo-autorizado.exemplo.json</a> fora do repositório e use o prompt 09: plano não destrutivo, evidência mínima, correção e reteste.</p>
+  </div></div>
+</div></section>
+
+<section id="fronteiras"><div class="wrap">
+  <span class="chip">Fronteiras</span>
+  <h2>As regras que vêm junto com o modelo sem recusa</h2>
+  <p class="sub">Estão no fim de todos os prompts e no <a href="https://github.com/inematds/ia-sem-censura-defensiva/blob/main/kit/USO-DEFENSIVO.md">USO-DEFENSIVO.md</a>. Não são opcionais.</p>
+  <div class="grid g3">
+    <div class="card alerta"><h3>Só o que é seu</h3><p>Sistemas seus ou com permissão por escrito do dono. URL pública, login que funciona ou chave de API não são permissão.</p></div>
+    <div class="card alerta"><h3>Escopo antes do primeiro pedido</h3><p>Alvo exato, permissão registrada, ações, janela e limites. Faltou, venceu ou ficou confuso: pare.</p></div>
+    <div class="card alerta"><h3>Laboratório sintético primeiro</h3><p>Dados inventados, em 127.0.0.1. Checagens que não mudam nada antes de qualquer outra.</p></div>
+    <div class="card alerta"><h3>Prova proporcional</h3><p>A menor evidência que confirma o achado. Nada de baixar banco, mostrar credencial real ou mexer em conta alheia.</p></div>
+    <div class="card alerta"><h3>Credenciais fora do chat e do git</h3><p>Arquivo privado com chmod 600, apontado por variável de ambiente. Chaves de teste, revogadas no fim.</p></div>
+    <div class="card alerta"><h3>Prompt não é cerca</h3><p>Modelo baixado roda primeiro sem ferramentas. Isolamento é do sistema operacional e do contêiner, não do texto do prompt.</p></div>
+    <div class="card alerta"><h3>Local só em 127.0.0.1</h3><p>Endpoint no seu computador não fica aberto na rede. Endpoint na nuvem sempre com autenticação — prove que sem chave é recusado.</p></div>
+    <div class="card alerta"><h3>Pare o Pod e confira EXITED</h3><p>Parar o app não para a GPU. E o armazenamento continua cobrando com o Pod parado.</p></div>
+    <div class="card alerta"><h3>IA erra: confira</h3><p>Achado de IA é hipótese até ser reproduzido com segurança. Varredura limpa não prova que algo é seguro.</p></div>
+  </div>
+  <p class="mut" style="margin-top:18px;font-size:.9rem">Leitura de segurança sobre modelos abliterated com porta dos fundos: <a href="https://projectdiscovery.io/research/how-abliterated-models-can-get-you-pwned" target="_blank" rel="noopener">ProjectDiscovery — How abliterated models can get you pwned</a> (em inglês).</p>
+</div></section>
+
+<section id="video"><div class="wrap">
+  <span class="chip">Vídeo</span>
+  <h2>O kit explicado em vídeo</h2>
+  <p class="sub">As três rotas, o laboratório e a guarda de custo, em poucos minutos.</p>
+  <!-- VIDEO -->
+  <div class="video">O vídeo entra aqui assim que for publicado.</div>
+</div></section>
+
+<section id="status"><div class="wrap">
+  <span class="chip">Status · 26/10/2026</span>
+  <h2>O que foi testado — e o que depende da sua conta</h2>
+  <p class="sub">Teste com limite claro, não certificação. Detalhes em <a href="https://github.com/inematds/ia-sem-censura-defensiva/blob/main/kit/verificacao/STATUS.md">verificacao/STATUS.md</a>.</p>
+  <div class="phase"><div class="tag">✔ Testado</div><div class="d"><strong>Scripts do kit, offline</strong><span>25 testes passando em 127.0.0.1, com API e modelo falsos; laboratório e checagem pela linha de comando.</span></div></div>
+  <div class="phase"><div class="tag">◐ Observado</div><div class="d"><strong>Modelo local Q4_K no LM Studio</strong><span>Em 26/10/2026, numa instalação existente: texto ✔, função ✔, imagem ✘ nesse runtime. Não repetido nesta versão do kit.</span></div></div>
+  <div class="phase"><div class="tag nao">— Não testado</div><div class="d"><strong>Provedor pago, GPU na RunPod, parada real de Pod</strong><span>Dependem da conta e da chave de quem usa. Nenhuma GPU paga foi alugada para este kit.</span></div></div>
+  <div class="phase"><div class="tag nao">— Não testado</div><div class="d"><strong>Harness, MCPs e Nuclei instalados</strong><span>Configuração de exemplo pronta; a instalação em cada sistema fica com você e o seu assistente.</span></div></div>
+</div></section>
+
+<footer>
+  <div class="wrap">
+    <div class="pill">DeepSeek Harness</div><div class="pill">LM Studio</div><div class="pill">RunPod</div><div class="pill">Playwright MCP</div><div class="pill">Firecrawl MCP</div><div class="pill">Nuclei</div><div class="pill">Python 3.10+</div>
+    <p style="margin-top:18px">IA sem censura, do jeito certo · kit aberto e gratuito, licença MIT ·
+      <a href="https://github.com/inematds/ia-sem-censura-defensiva">inematds/ia-sem-censura-defensiva</a> ·
+      <a href="https://inema.club">INEMA.CLUB</a></p>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var KEY='ia-sem-censura-defensiva-theme';
+    var b=document.body, t=document.getElementById('themeToggle');
+    try{ if(localStorage.getItem(KEY)==='light'){ b.classList.add('light'); t.textContent='☀️'; } }catch(e){}
+    t.addEventListener('click',function(){
+      var light=b.classList.toggle('light');
+      t.textContent=light?'☀️':'🌙';
+      try{ localStorage.setItem(KEY, light?'light':'dark'); }catch(e){}
+    });
+  })();
+</script>
+</body>
+</html>
