@@ -1,5 +1,27 @@
 <!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Vídeo · IA sem censura, do jeito certo · INEMA.CLUB</title>
-<style>:root{color-scheme:dark}body{margin:0;background:#0c0c10;color:#ededf2;font:17px/1.6 Inter,system-ui,sans-serif}main{max-width:760px;margin:auto;padding:48px 16px}a{color:#FACC15}</style></head>
-<body><main><h1>Vídeo em produção</h1><p>O vídeo explicativo do kit entra nesta página assim que for publicado.</p>
-<p><a href="../guia/">Abrir o guia</a> · <a href="https://inema.club">INEMA.CLUB</a></p></main></body></html>
+<title>IA sem censura, do jeito certo: seu próprio modelo para segurança defensiva · INEMA.CLUB</title><meta name="description" content="Um modelo aberto que não recusa perguntas técnicas, ligado ao DeepSeek Harness por API, GPU na RunPod ou LM Studio local. Como provar texto, função e imagem, treinar num laboratório falso e não deixar a GPU cobrando à toa — sempre só no que é seu.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Sora:wght@700;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>:root{color-scheme:dark;--bg:#0c0c10;--card:#15151c;--line:#2a2a35;--tx:#ededf2;--mut:#a3a3b2;--am:#FACC15}*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:17px/1.6 Inter,system-ui,sans-serif}main{max-width:1100px;margin:auto;padding:32px 16px}
+a{color:var(--am)}h1{font:800 clamp(1.9rem,5vw,3rem)/1.12 Sora,sans-serif;margin:.4em 0}h1 b{color:var(--am)}.lead{color:var(--mut);max-width:760px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin:28px 0}.card h2{font:700 1.25rem Sora,sans-serif;margin:0 0 8px}.card h2 span{color:var(--mut);font:500 .95rem Inter,sans-serif}
+video{width:100%;aspect-ratio:16/9;background:#000;border-radius:12px}.vert video{aspect-ratio:9/16;max-width:420px;display:block;margin:auto}
+summary{cursor:pointer;color:var(--am);margin-top:8px}button{display:block;background:var(--bg);color:var(--tx);border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:6px 0;text-align:left;cursor:pointer;width:100%;font:inherit}
+.kit li{margin:.35em 0}.etica{border-left:4px solid #F0918A}:focus-visible{outline:3px solid var(--am);outline-offset:3px}footer{color:var(--mut);font-size:15px;margin-top:40px}</style></head>
+<body><main><nav><a href="https://inema.club">INEMA.CLUB</a> · <a href="../guia/">Guia</a> · <a href="https://github.com/inematds/ia-sem-censura-defensiva">GitHub</a></nav>
+<h1>IA sem censura, do <b>jeito certo</b></h1><p class="lead">Um modelo aberto que não recusa perguntas técnicas, ligado ao DeepSeek Harness por API, GPU na RunPod ou LM Studio local. Como provar texto, função e imagem, treinar num laboratório falso e não deixar a GPU cobrando à toa — sempre só no que é seu.</p>
+<section class="card"><h2>Vídeo completo 16:9 <span>3min38s</span></h2>
+<video controls preload="metadata" playsinline><source src="https://github.com/inematds/ia-sem-censura-defensiva/releases/download/video-v1.0.0/ia-sem-censura-defensiva-16x9.mp4" type="video/mp4"><track default kind="subtitles" src="pt.vtt" srclang="pt" label="Português"></video>
+<p><a href="https://github.com/inematds/ia-sem-censura-defensiva/releases/download/video-v1.0.0/ia-sem-censura-defensiva-16x9.mp4">Baixar MP4</a> · <a href="https://github.com/inematds/ia-sem-censura-defensiva/releases/download/video-v1.0.0/ia-sem-censura-defensiva-16x9.srt">Baixar legendas</a></p>
+<details><summary>Capítulos</summary><button type="button" data-time="0">00:00 · IA sem censura, do jeito certo</button><button type="button" data-time="28">00:28 · A IA que você paga diz não</button><button type="button" data-time="51">00:51 · Um pedido, três ferramentas</button><button type="button" data-time="73">01:13 · O cérebro e o corpo</button><button type="button" data-time="95">01:35 · Em minutos, com uma chave</button><button type="button" data-time="123">02:03 · Sua GPU, sua conta de luz</button><button type="button" data-time="155">02:35 · Sem conta de nuvem</button><button type="button" data-time="180">03:00 · O modelo também pode ser o invasor</button><button type="button" data-time="202">03:22 · Teste o que é seu</button></details></section>
+<section class="card"><h2>O kit em português</h2><ul class="kit">
+<li><a href="https://github.com/inematds/ia-sem-censura-defensiva/blob/main/kit/COMECE-AQUI.md">COMECE-AQUI</a> — o caminho mais curto e o que tem no kit</li>
+<li><a href="https://github.com/inematds/ia-sem-censura-defensiva/tree/main/kit/prompts">prompts</a> — os 9 prompts, cada um com o bloco de fronteiras</li>
+<li><a href="https://github.com/inematds/ia-sem-censura-defensiva/tree/main/kit/guias">guias</a> — as 3 rotas, ferramentas, segurança do modelo, custo e problemas comuns</li>
+<li><a href="https://github.com/inematds/ia-sem-censura-defensiva/tree/main/kit/scripts">scripts</a> — checador de endpoint, laboratório, checagem com escopo e guarda ociosa</li>
+<li><a href="https://github.com/inematds/ia-sem-censura-defensiva/blob/main/kit/verificacao/STATUS.md">STATUS</a> — o que foi testado e o que depende da sua conta</li></ul>
+<p>Passo a passo no <a href="../guia/">guia</a>.</p></section>
+<section class="card etica"><h2>A regra</h2><p>Só sistemas seus ou com permissão por escrito. Escopo registrado antes, laboratório sintético primeiro, credenciais fora do chat. Na RunPod, pare o Pod e confira EXITED.</p></section>
+
+<footer>Conteúdo aberto e gratuito do <a href="https://inema.club">INEMA.CLUB</a>. DeepSeek Harness, LM Studio, RunPod e os modelos citados são de seus autores.</footer></main>
+<script>document.querySelectorAll('[data-time]').forEach(b=>b.addEventListener('click',()=>{const v=b.closest('.card').querySelector('video');v.currentTime=Number(b.dataset.time);v.play();}));</script></body></html>
