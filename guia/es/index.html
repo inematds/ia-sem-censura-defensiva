@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>IA sin censura, de la manera correcta — tu propio modelo para la seguridad defensiva</title>
-<meta name="description" content="Kit gratuito de INEMA: conecta un modelo abliterated a DeepSeek Harness por API, GPU en RunPod o LM Studio local, prueba texto, función e imagen, practica en un laboratorio sintético y controla el costo — siempre con autorización y alcance definidos.">
+<meta name="description" content="Kit gratuito de INEMA: conecta un modelo abliterated a DeepSeek Harness por API, GPU en RunPod o LM Studio local, prueba texto, función e imagen, practica en un laboratorio sintético y controla el costo — siempre con alcance autorizado.">
 <link rel="alternate" hreflang="pt-BR" href="https://inematds.github.io/ia-sem-censura-defensiva/guia/">
 <link rel="alternate" hreflang="en" href="https://inematds.github.io/ia-sem-censura-defensiva/guia/en/">
 <link rel="alternate" hreflang="es" href="https://inematds.github.io/ia-sem-censura-defensiva/guia/es/">
@@ -120,7 +120,7 @@
   </span>
   <div class="links">
     <a class="sec" href="#oque">Qué es</a>
-    <a class="sec" href="#rotas">Rutas</a>
+    <a class="sec" href="#rotas">Opciones</a>
     <a class="sec" href="#guia">Guía de uso</a>
     <a class="sec" href="#fronteiras">Límites</a>
     <a class="sec" href="#status">Estado</a>
@@ -136,7 +136,7 @@
     <div>
       <span class="chip">Kit INEMA · seguridad defensiva</span>
       <h1>IA sin censura, de la <span class="amb">manera correcta</span></h1>
-      <p class="lead">Tu propio modelo, sin sermones, para examinar lo que es tuyo — con el alcance registrado, un laboratorio simulado y la GPU apagada cuando no la estás usando.</p>
+      <p class="lead">Tu propio modelo, sin sermones, para examinar lo que es tuyo — con alcance registrado, laboratorio simulado y la GPU apagada cuando no la estés usando.</p>
       <div class="cta">
         <a class="btn" href="#guia">Empezar la guía</a>
         <a class="btn ghost" href="https://github.com/inematds/ia-sem-censura-defensiva" target="_blank" rel="noopener">Ver en GitHub</a>
@@ -148,71 +148,83 @@
 
 <section id="resumo" class="resumo"><div class="wrap">
   <span class="chip">En resumen</span>
-  <p>Este es un kit gratuito de INEMA, en portugués, para quienes estudian seguridad y quieren un modelo de IA abierto que no rechace preguntas técnicas: los llamados modelos <em>abliterated</em>, a los que se les quitó el rechazo. Muestra cómo conectar este modelo a DeepSeek Harness (un agente de código abierto) por API, mediante una GPU alquilada en RunPod o con LM Studio en tu computadora. Incluye prompts listos, scripts que comprueban si funcionan el texto, las herramientas y las imágenes, un laboratorio simulado para practicar y una protección que detiene la GPU cuando está inactiva. Necesitas un asistente que lea archivos, Python 3.10+ y, según la ruta, una cuenta de API o de GPU, además de permiso para todo lo que pruebes.</p>
+  <p>Este es un kit gratuito de INEMA, en portugués, para quienes estudian seguridad y quieren un modelo de IA abierto que no rechace preguntas técnicas: los llamados modelos <em>abliterated</em>, a los que se les quitó la tendencia a rechazar solicitudes. Muestra cómo conectar este modelo a DeepSeek Harness (un agente de código abierto) mediante una API, una GPU alquilada en RunPod o LM Studio en tu computadora. Incluye prompts listos, scripts que comprueban si funcionan el texto, las herramientas y las imágenes, un laboratorio simulado para practicar y una protección que apaga la GPU cuando está inactiva. Necesitas un asistente que lea archivos, Python 3.10+ y, según la opción, una cuenta de API o de GPU, además de permiso para todo lo que pruebes.</p>
 </div></section>
 
 <section id="oque"><div class="wrap">
   <span class="chip">Qué es</span>
   <h2>Un modelo que no rechaza, con límites que tú controlas</h2>
-  <p class="sub">Quitarle el rechazo al modelo no elimina la responsabilidad: esta recae en el alcance, el laboratorio y los permisos que le das. El kit incluye esas tres cosas listas.</p>
+  <p class="sub">Quitarle al modelo la tendencia a rechazar solicitudes no elimina tu responsabilidad: esta recae en el alcance, el laboratorio y los permisos que otorgas. El kit incluye las tres cosas listas.</p>
   <figure style="margin:0 0 26px;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px -30px #000"><img src="../assets/banner-grade-es.jpg" alt="Banner con seis tarjetas: API alojada, GPU en RunPod, local en LM Studio, herramientas MCP, laboratorio sintético, alcance autorizado" loading="lazy" style="width:100%;display:block"></figure>
   <div class="grid g3">
-    <div class="card"><h3>🧭 Tres rutas, una prueba</h3><p>API alojada, GPU en RunPod o LM Studio local. En todas, el mismo verificador comprueba el texto en dos turnos, una función inofensiva y la lectura de una imagen, cada una por separado.</p></div>
-    <div class="card"><h3>🧪 Primero el laboratorio, después el mundo real</h3><p>Una página falsa en 127.0.0.1 con dos problemas de configuración. La comprobación solo se ejecuta con un archivo de alcance válido, hace una solicitud y rechaza cualquier host remoto.</p></div>
-    <div class="card"><h3>💸 La GPU no queda encendida sin motivo</h3><p>Una protección local mide el tiempo de inactividad y, si se lo indicas, detiene tu Pod tras comprobar el ID y el nombre, primero en modo de simulación y verificando EXITED.</p></div>
+    <div class="card"><h3>🧭 Tres opciones, una prueba</h3><p>API alojada, GPU en RunPod o LM Studio local. En todas, el verificador comprueba por separado el texto en dos turnos, una función inofensiva y la lectura de una imagen.</p></div>
+    <div class="card"><h3>🧪 Primero el laboratorio</h3><p>Una página simulada en 127.0.0.1 con dos problemas de configuración. La comprobación solo se ejecuta con un archivo de alcance válido, hace una solicitud y rechaza cualquier host remoto.</p></div>
+    <div class="card"><h3>💸 La GPU no queda encendida sin motivo</h3><p>Una protección local mide el tiempo de inactividad y, si se lo indicas, detiene tu Pod comprobando el ID y el nombre; empieza en modo de simulación y confirma EXITED.</p></div>
   </div>
 </div></section>
 
 <section id="rotas"><div class="wrap">
   <span class="chip">Cómo funciona</span>
-  <h2>Elige la ruta, comprueba cada capa y luego úsala</h2>
-  <p class="sub">El orden siempre es el mismo: primero el alcance y el laboratorio, luego una capacidad a la vez y el costo bajo control.</p>
+  <h2>Elige una opción, comprueba cada parte y luego úsala</h2>
+  <p class="sub">El orden es siempre el mismo: primero el alcance y el laboratorio, luego una capacidad a la vez y el costo bajo control.</p>
   <div class="flow">
     <span>Leer los límites</span><span class="arr">→</span>
-    <span>Elegir la ruta</span><span class="arr">→</span>
-    <span>Conectar al Harness</span><span class="arr">→</span>
+    <span>Elegir una opción</span><span class="arr">→</span>
+    <span>Conectar a Harness</span><span class="arr">→</span>
     <span>Probar texto · función · imagen</span><span class="arr">→</span>
     <span>Herramientas MCP</span><span class="arr">→</span>
     <span>Laboratorio sintético</span><span class="arr">→</span>
-    <span>Tu app, con alcance definido</span>
+    <span>Tu app, con alcance</span>
   </div>
   <div class="grid g3" style="margin-top:26px">
-    <div class="card"><h3>☁️ API alojada</h3><p>Menos pasos, sin GPU. Pagas por el uso de la API (la suscripción de chat no la incluye). Ejemplos de proveedores: Abliteration y OrcaRouter.</p><ul><li>Prompts 01 → 02 → 03 → 09</li></ul></div>
-    <div class="card"><h3>🖥️ GPU en RunPod</h3><p>Eliges el modelo y el runtime. Pagas por hora de GPU y almacenamiento. Ejemplo: Huihui Qwen3.5 9B abliterated Q6_K con proyector de visión.</p><ul><li>Prompts 01 → 04 → 05 → 06 → 03 → 09</li></ul></div>
-    <div class="card"><h3>💻 Local en LM Studio</h3><p>Sin cuenta de GPU, si tu equipo puede con ello. Ejemplo: Huihui Qwen3.6 35B-A3B abliterated Q4_K (~21,7 GB + ~0,9 GB de proyector).</p><ul><li>Prompts 01 → 07 → 08 → 03 → 09</li></ul></div>
+    <div class="card"><h3>☁️ API alojada</h3><p>Menos pasos, sin GPU. Pagas por el uso de la API (no está incluido en la suscripción de chat). Ejemplos de proveedores: Abliteration y OrcaRouter.</p><ul><li>Prompts 01 → 02 → 03 → 09</li></ul></div>
+    <div class="card"><h3>🖥️ GPU en RunPod</h3><p>Tú eliges el modelo y el runtime. Pagas por las horas de GPU y el almacenamiento. Ejemplo: Huihui Qwen3.5 9B abliterated Q6_K con proyector de visión.</p><ul><li>Prompts 01 → 04 → 05 → 06 → 03 → 09</li></ul></div>
+    <div class="card"><h3>💻 Local en LM Studio</h3><p>Sin cuenta de GPU, si tu computadora puede con ello. Ejemplo: Huihui Qwen3.6 35B-A3B abliterated Q4_K (~21,7 GB + ~0,9 GB de proyector).</p><ul><li>Prompts 01 → 07 → 08 → 03 → 09</li></ul></div>
   </div>
   <p class="mut" style="margin-top:18px;font-size:.9rem">Modelos y precios comprobados el 26/10/2026. Pueden cambiar: compruébalos antes de descargar o alquilar.</p>
+  <h3 style="margin:30px 0 12px;font-size:1.15rem">Glosario rápido</h3>
+  <div class="grid g3">
+    <div class="card"><h3>Abliterated</h3><p>Modelo abierto al que alguien le quitó técnicamente la tendencia a rechazar solicitudes.</p></div>
+    <div class="card"><h3>DeepSeek Harness</h3><p>Agente de código abierto que conversa con el modelo y le da herramientas dentro de una carpeta de trabajo.</p></div>
+    <div class="card"><h3>MCP</h3><p>Estándar para conectar herramientas a un agente de IA. Aquí: navegador (Playwright) e investigación (Firecrawl).</p></div>
+    <div class="card"><h3>GGUF, Q4_K, Q6_K</h3><p>GGUF es el formato del archivo del modelo; Q4_K y Q6_K son niveles de compresión (cuantización): cuanto menor el número, más pequeño el archivo y algo menor la calidad.</p></div>
+    <div class="card"><h3>Proyector de visión</h3><p>Archivo adicional (mmproj) que permite al modelo leer imágenes. Debe ser compatible con el modelo y el runtime.</p></div>
+    <div class="card"><h3>Runtime</h3><p>El programa que ejecuta el modelo y ofrece la API (por ejemplo, el servidor de LM Studio).</p></div>
+    <div class="card"><h3>Pod y EXITED</h3><p>Pod es la máquina con GPU alquilada en RunPod. EXITED es el estado detenido: solo ese estado confirma que la GPU dejó de cobrarse por hora.</p></div>
+    <div class="card"><h3>Nuclei</h3><p>Scanner de línea de comandos que ejecuta «templates». El kit incluye uno pasivo, solo para el laboratorio.</p></div>
+    <div class="card"><h3>Endpoint</h3><p>La dirección de la API del modelo, que termina en /v1.</p></div>
+  </div>
 </div></section>
 
 <section id="pre"><div class="wrap">
   <span class="chip">Requisitos previos</span>
   <h2>Qué necesitas tener a mano</h2>
-  <p class="sub">Los scripts del kit usan solo la biblioteca estándar de Python. El resto depende de la ruta.</p>
+  <p class="sub">Los scripts del kit usan solo la biblioteca estándar de Python. El resto depende de la opción que elijas.</p>
   <div class="grid g3">
     <div class="card"><h3>Python 3.10+ y git</h3><p>Para descargar el kit y ejecutar los scripts y las pruebas.</p><pre><span class="k">git clone</span> <span class="s">https://github.com/inematds/ia-sem-censura-defensiva</span>
 <span class="k">cd</span> ia-sem-censura-defensiva
 <span class="k">python3</span> kit/scripts/doutor.py</pre></div>
-    <div class="card"><h3>Un asistente que lea archivos</h3><p>Claude Code, Codex o similar. Sigue los prompts y te muestra lo que hará antes de hacerlo. Node.js en la versión que requiera el Harness.</p></div>
-    <div class="card"><h3>Una cuenta según la ruta</h3><p>API: cuenta y crédito en el proveedor. RunPod: cuenta y crédito. Local: memoria disponible y espacio en disco. Ninguna suscripción de chat incluye API o GPU.</p></div>
+    <div class="card"><h3>Un asistente que lea archivos</h3><p>Claude Code, Codex o similar. Sigue los prompts y te muestra lo que hará antes de hacerlo. Node.js en la versión que pida Harness.</p></div>
+    <div class="card"><h3>Una cuenta, según la opción</h3><p>API: cuenta y crédito con el proveedor. RunPod: cuenta y crédito. Local: memoria y espacio en disco disponibles. Ninguna suscripción de chat incluye API ni GPU.</p></div>
   </div>
 </div></section>
 
 <section id="guia"><div class="wrap">
   <span class="chip">Guía de uso · paso a paso</span>
   <h2>Desde cero hasta el primer hallazgo en el laboratorio</h2>
-  <p class="sub">Los pasos 1 a 4 funcionan hoy, sin ninguna cuenta. A partir del 5, sigue los prompts de tu ruta.</p>
+  <p class="sub">Los pasos 1 a 4 funcionan hoy, sin ninguna cuenta. A partir del 5, sigue los prompts de la opción que elegiste.</p>
 
   <div class="step"><div class="b">1</div><div>
-    <h3>Descarga el kit y comprueba el equipo</h3>
+    <h3>Descarga el kit y comprueba tu equipo</h3>
     <p>El diagnóstico solo lee versiones y puertos; no instala nada ni abre claves.</p>
 <pre><span class="k">git clone</span> <span class="s">https://github.com/inematds/ia-sem-censura-defensiva</span> && <span class="k">cd</span> ia-sem-censura-defensiva
 <span class="k">python3</span> kit/scripts/doutor.py</pre>
   </div></div>
 
   <div class="step"><div class="b">2</div><div>
-    <h3>Ejecuta las pruebas offline</h3>
-    <p>25 pruebas en 127.0.0.1 con servidores falsos: alcance denegado, objetivo remoto rechazado, alcance vencido, hallazgo y corrección, proxy sin token, reloj de inactividad y fallo al detener.</p>
-<pre><span class="k">python3</span> -m unittest discover -s kit/testes -v   <span class="c"># Ran 25 tests ... OK</span></pre>
+    <h3>Ejecuta las pruebas sin conexión</h3>
+    <p>25 pruebas en 127.0.0.1, con servidores simulados: alcance denegado, objetivo remoto rechazado, alcance vencido, hallazgo y corrección, proxy sin token, reloj de inactividad y fallo al detener.</p>
+<pre><span class="k">python3</span> -m unittest discover -s kit/testes -v   <span class="c"># Se ejecutaron 25 pruebas ... OK</span></pre>
   </div></div>
 
   <div class="step"><div class="b">3</div><div>
@@ -222,53 +234,61 @@
 <span class="k">python3</span> kit/scripts/laboratorio.py
 <span class="c"># terminal 2</span>
 <span class="k">python3</span> kit/scripts/checagem_segura.py --lab-local-autorizado
-<span class="c"># "achados": faltan X-Content-Type-Options y Referrer-Policy</span></pre>
+<span class="c"># "achados": X-Content-Type-Options e Referrer-Policy ausentes</span></pre>
   </div></div>
 
   <div class="step"><div class="b">4</div><div>
     <h3>Corrige y vuelve a probar</h3>
-    <p>Detén el laboratorio (Ctrl+C), inicia la versión corregida y repite la misma comprobación. Usa la <a href="https://github.com/inematds/ia-sem-censura-defensiva/blob/main/kit/exemplos/relatorio-de-achados.exemplo.md">plantilla de informe (en portugués)</a> para separar evidencia, hipótesis y corrección.</p>
+    <p>Detén el laboratorio (Ctrl+C), inicia la versión corregida y repite la misma comprobación. Usa la <a href="https://github.com/inematds/ia-sem-censura-defensiva/blob/main/kit/exemplos/relatorio-de-achados.exemplo.md">plantilla del informe (en portugués)</a> para separar las pruebas, las hipótesis y las correcciones.</p>
 <pre><span class="k">python3</span> kit/scripts/laboratorio.py --corrigido
 <span class="k">python3</span> kit/scripts/checagem_segura.py --lab-local-autorizado   <span class="c"># "achados": []</span></pre>
   </div></div>
 
   <div class="step"><div class="b">5</div><div>
     <h3>Entrega el kit a tu asistente</h3>
-    <p>Abre <a href="https://github.com/inematds/ia-sem-censura-defensiva/blob/main/kit/CONFIGURA-COM-ASSISTENTE.md">CONFIGURA-COM-ASSISTENTE.md (en portugués)</a>, copia la solicitud y pégala en Claude Code (o similar), abierto en la carpeta del kit. Te preguntará qué ruta eliges, cuánta memoria tienes libre y cuál es tu presupuesto.</p>
+    <p>Abre <a href="https://github.com/inematds/ia-sem-censura-defensiva/blob/main/kit/CONFIGURA-COM-ASSISTENTE.md">CONFIGURA-COM-ASSISTENTE.md (en portugués)</a>, copia la solicitud y pégala en Claude Code (o similar), abierto en la carpeta del kit. Te preguntará qué opción elegiste, cuánta memoria tienes disponible y cuál es tu presupuesto.</p>
   </div></div>
 
   <div class="step"><div class="b">6</div><div>
-    <h3>Conecta el modelo mediante la ruta que elegiste</h3>
-    <p>Sigue los <a href="https://github.com/inematds/ia-sem-censura-defensiva/tree/main/kit/prompts">prompts numerados (en portugués)</a>. En la ruta local, el servidor queda limitado a 127.0.0.1:</p>
+    <h3>Conecta el modelo con la opción que elegiste</h3>
+    <p>Sigue los <a href="https://github.com/inematds/ia-sem-censura-defensiva/tree/main/kit/prompts">prompts numerados (en portugués)</a>: el asistente instala lo que falte (Harness, LM Studio, Nuclei) y te lo muestra antes. En la opción local, con LM Studio instalado (el comando <code>lms</code> viene incluido), el servidor queda limitado a 127.0.0.1:</p>
 <pre><span class="k">lms load</span> SEU-MODELO --context-length 4096 --identifier defensivo-local --ttl 600
 <span class="k">lms server start</span> --bind 127.0.0.1 --port 1234</pre>
   </div></div>
 
   <div class="step"><div class="b">7</div><div>
     <h3>Comprueba el texto, la función y la imagen</h3>
-    <p>Si hay una clave, debe venir de un archivo privado, nunca del chat. Cada capacidad se informa por separado.</p>
-<pre><span class="c"># solo para API o nube; el endpoint local no lo necesita</span>
-<span class="k">export</span> INEMA_CHAVE_MODELO_ARQ=~/.segredos/chave-modelo   <span class="c"># archivo con chmod 600</span>
+    <p>Si hay una clave, debe venir de un archivo privado; nunca del chat. Cada capacidad se muestra como un resultado separado.</p>
+<pre><span class="c"># opción local: sin clave</span>
 <span class="k">python3</span> kit/scripts/checa_endpoint.py --base-url http://127.0.0.1:1234/v1 \
   --modelo defensivo-local --funcao --imagem kit/exemplos/teste-visao.png</pre>
+<pre><span class="c"># API o nube: la clave va en un archivo privado, en una sola línea</span>
+<span class="k">mkdir</span> -p ~/.segredos && <span class="k">chmod</span> 700 ~/.segredos
+<span class="k">nano</span> ~/.segredos/chave-modelo && <span class="k">chmod</span> 600 ~/.segredos/chave-modelo
+<span class="k">export</span> INEMA_CHAVE_MODELO_ARQ=~/.segredos/chave-modelo
+<span class="k">python3</span> kit/scripts/checa_endpoint.py --base-url <span class="s">https://SEU-PROVEDOR/v1</span> --modelo SEU-ID --funcao</pre>
   </div></div>
 
   <div class="step"><div class="b">8</div><div>
     <h3>Añade herramientas, una a la vez</h3>
-    <p>Navegador (Playwright MCP), búsqueda (Firecrawl MCP) y Nuclei, cada uno comprobado con una llamada real. Nuclei solo se ejecuta contra el laboratorio y con la plantilla pasiva del kit.</p>
+    <p>Navegador (Playwright MCP), investigación (Firecrawl MCP) y Nuclei: prueba cada uno con una llamada real. Ejecuta Nuclei (scanner de línea de comandos, instalado por el prompt 03) solo contra el laboratorio, con el template pasivo del kit.</p>
 <pre><span class="k">nuclei</span> -u http://127.0.0.1:8181/ -t kit/exemplos/nuclei-cabecalhos-lab.yaml -rl 1 -c 1</pre>
   </div></div>
 
   <div class="step"><div class="b">9</div><div>
-    <h3>En RunPod: prueba la protección de inactividad en modo de simulación</h3>
-    <p>Todas las solicitudes pasan por la protección en 127.0.0.1:8282, con un token local. Cuando veas <code>simulacao_pararia</code>, puedes activar la detención real con el ID y el nombre exactos del Pod. Comprueba EXITED en el panel.</p>
-<pre><span class="k">export</span> INEMA_TOKEN_LOCAL_ARQ=~/.segredos/token-guarda
+    <h3>En RunPod: protección de inactividad en simulación</h3>
+    <p>Todas las solicitudes pasan por la protección en 127.0.0.1:8282, con un token local. Solo después de ver <code>simulacao_pararia</code> activas la detención real, con el ID y el nombre exactos del Pod. Comprueba EXITED en el panel.</p>
+<pre><span class="c"># crea un token local aleatorio (Harness usa este, no la clave de RunPod)</span>
+<span class="k">mkdir</span> -p ~/.segredos && <span class="k">chmod</span> 700 ~/.segredos
+<span class="k">python3</span> -c <span class="s">"import secrets;print(secrets.token_urlsafe(32))"</span> > ~/.segredos/token-guarda
+<span class="k">chmod</span> 600 ~/.segredos/token-guarda
+<span class="k">export</span> INEMA_TOKEN_LOCAL_ARQ=~/.segredos/token-guarda
 <span class="k">python3</span> kit/scripts/guarda_ociosa.py --upstream <span class="s">https://SEU-ENDPOINT/v1</span> --ocioso 900</pre>
   </div></div>
 
   <div class="step"><div class="b">10</div><div>
-    <h3>Usa tu app solo con el alcance por escrito</h3>
-    <p>Completa una copia de <a href="https://github.com/inematds/ia-sem-censura-defensiva/blob/main/kit/exemplos/escopo-autorizado.exemplo.json">escopo-autorizado.exemplo.json (en portugués)</a> fuera del repositorio y usa el prompt 09: plan no destructivo, evidencia mínima, corrección y nueva prueba.</p>
+    <h3>Usa tu app solo con un alcance por escrito</h3>
+    <p>Completa una copia de <a href="https://github.com/inematds/ia-sem-censura-defensiva/blob/main/kit/exemplos/escopo-autorizado.exemplo.json">escopo-autorizado.exemplo.json (en portugués)</a> fuera del repositorio y usa el prompt 09: plan no destructivo, pruebas mínimas, corrección y nueva prueba.</p>
   </div></div>
 </div></section>
 
@@ -277,35 +297,35 @@
   <h2>Las reglas que acompañan al modelo sin rechazo</h2>
   <p class="sub">Están al final de todos los prompts y en <a href="https://github.com/inematds/ia-sem-censura-defensiva/blob/main/kit/USO-DEFENSIVO.md">USO-DEFENSIVO.md (en portugués)</a>. No son opcionales.</p>
   <div class="grid g3">
-    <div class="card alerta"><h3>Solo lo que es tuyo</h3><p>Sistemas tuyos o cuyo dueño te haya dado permiso por escrito. Una URL pública, un inicio de sesión válido o una clave de API no son permisos.</p></div>
-    <div class="card alerta"><h3>Define el alcance antes de la primera solicitud</h3><p>Objetivo exacto, permiso registrado, acciones, horario y límites. Si falta algo, venció o no está claro: detente.</p></div>
-    <div class="card alerta"><h3>Primero, el laboratorio sintético</h3><p>Datos inventados en 127.0.0.1. Antes que nada, haz comprobaciones que no cambien nada.</p></div>
-    <div class="card alerta"><h3>Pruebas proporcionales</h3><p>La menor evidencia que confirme el hallazgo. No descargues bases de datos, no muestres credenciales reales ni accedas a cuentas ajenas.</p></div>
-    <div class="card alerta"><h3>Credenciales fuera del chat y de git</h3><p>Usa un archivo privado con chmod 600, indicado mediante una variable de entorno. Revoca las claves de prueba al terminar.</p></div>
-    <div class="card alerta"><h3>Un prompt no es una barrera</h3><p>Primero ejecuta el modelo descargado sin herramientas. El aislamiento depende del sistema operativo y del contenedor, no del texto del prompt.</p></div>
-    <div class="card alerta"><h3>Usa 127.0.0.1 solo en local</h3><p>El endpoint de tu computadora no debe estar abierto en la red. Protege siempre con autenticación el endpoint en la nube y comprueba que rechace las solicitudes sin clave.</p></div>
-    <div class="card alerta"><h3>Detén el Pod y comprueba EXITED</h3><p>Detener la app no detiene la GPU. Y el almacenamiento sigue generando cargos aunque el Pod esté detenido.</p></div>
-    <div class="card alerta"><h3>La IA se equivoca: comprueba los resultados</h3><p>Un hallazgo de IA es una hipótesis hasta que se reproduce de forma segura. Una exploración sin resultados no demuestra que algo sea seguro.</p></div>
+    <div class="card alerta"><h3>Solo lo que es tuyo</h3><p>Sistemas tuyos o con permiso por escrito de su propietario. Que una URL sea pública, que un inicio de sesión funcione o que tengas una clave de API no significa que tengas permiso.</p></div>
+    <div class="card alerta"><h3>Define el alcance antes de la primera solicitud</h3><p>Objetivo exacto, permiso registrado, acciones, periodo y límites. Si falta algo, venció o no está claro: detente.</p></div>
+    <div class="card alerta"><h3>Primero, el laboratorio sintético</h3><p>Datos inventados en 127.0.0.1. Antes que cualquier otra cosa, haz comprobaciones que no cambien nada.</p></div>
+    <div class="card alerta"><h3>Pruebas proporcionales</h3><p>La prueba mínima que confirma el hallazgo. No descargues bases de datos, muestres credenciales reales ni toques cuentas ajenas.</p></div>
+    <div class="card alerta"><h3>Credenciales fuera del chat y de git</h3><p>Guárdalas en un archivo privado con chmod 600, indicado por una variable de entorno. Usa claves de prueba y revócalas al terminar.</p></div>
+    <div class="card alerta"><h3>Un prompt no es una barrera</h3><p>Ejecuta primero el modelo descargado sin herramientas. El aislamiento depende del sistema operativo y del contenedor, no del texto del prompt.</p></div>
+    <div class="card alerta"><h3>Local solo en 127.0.0.1</h3><p>El endpoint de tu computadora no queda abierto en la red. El endpoint en la nube siempre debe tener autenticación: comprueba que rechaza las solicitudes sin clave.</p></div>
+    <div class="card alerta"><h3>Detén el Pod y comprueba EXITED</h3><p>Detener la app no detiene la GPU. El almacenamiento sigue generando cargos aunque el Pod esté detenido.</p></div>
+    <div class="card alerta"><h3>La IA se equivoca: compruébalo</h3><p>Un hallazgo de IA es una hipótesis hasta que se reproduce de forma segura. Un escaneo sin hallazgos no demuestra que algo sea seguro.</p></div>
   </div>
-  <p class="mut" style="margin-top:18px;font-size:.9rem">Análisis de seguridad sobre modelos abliterated con puertas traseras: <a href="https://projectdiscovery.io/research/how-abliterated-models-can-get-you-pwned" target="_blank" rel="noopener">ProjectDiscovery — How abliterated models can get you pwned</a> (en inglés).</p>
+  <p class="mut" style="margin-top:18px;font-size:.9rem">Análisis de seguridad sobre puertas traseras en modelos abliterated: <a href="https://projectdiscovery.io/research/how-abliterated-models-can-get-you-pwned" target="_blank" rel="noopener">ProjectDiscovery — How abliterated models can get you pwned</a> (en inglés).</p>
 </div></section>
 
 <section id="video"><div class="wrap">
   <span class="chip">Video</span>
   <h2>El kit explicado en video</h2>
-  <p class="sub">Las tres rutas, el laboratorio y la protección de costos, en pocos minutos.</p>
+  <p class="sub">Las tres opciones, el laboratorio y el control de costos, en pocos minutos.</p>
   <!-- VIDEO -->
-  <div class="video">El video aparecerá aquí cuando se publique.</div>
+  <div class="video">El video se añadirá aquí cuando se publique.</div>
 </div></section>
 
 <section id="status"><div class="wrap">
   <span class="chip">Estado · 26/10/2026</span>
   <h2>Qué se probó y qué depende de tu cuenta</h2>
-  <p class="sub">Pruebas con límites claros, no una certificación. Consulta los detalles en <a href="https://github.com/inematds/ia-sem-censura-defensiva/blob/main/kit/verificacao/STATUS.md">verificacao/STATUS.md (en portugués)</a>.</p>
-  <div class="phase"><div class="tag">✔ Probado</div><div class="d"><strong>Scripts del kit, offline</strong><span>25 pruebas superadas en 127.0.0.1, con API y modelo falsos; laboratorio y comprobación por línea de comandos.</span></div></div>
+  <p class="sub">Pruebas con límites claros, no una certificación. Encontrarás los detalles en <a href="https://github.com/inematds/ia-sem-censura-defensiva/blob/main/kit/verificacao/STATUS.md">kit/verificacao/STATUS.md (en portugués)</a>.</p>
+  <div class="phase"><div class="tag">✔ Probado</div><div class="d"><strong>Scripts del kit, sin conexión</strong><span>25 pruebas superadas en 127.0.0.1, con una API y un modelo simulados; laboratorio y comprobación por línea de comandos.</span></div></div>
   <div class="phase"><div class="tag">◐ Observado</div><div class="d"><strong>Modelo local Q4_K en LM Studio</strong><span>El 26/10/2026, en una instalación existente: texto ✔, función ✔, imagen ✘ en ese runtime. No se repitió con esta versión del kit.</span></div></div>
-  <div class="phase"><div class="tag nao">— No probado</div><div class="d"><strong>Proveedor de pago, GPU en RunPod, detención real del Pod</strong><span>Dependen de la cuenta y la clave de quien lo use. No se alquiló ninguna GPU de pago para este kit.</span></div></div>
-  <div class="phase"><div class="tag nao">— No probado</div><div class="d"><strong>Harness, MCP y Nuclei instalados</strong><span>La configuración de ejemplo está lista. Tú y tu asistente se encargan de instalarla en cada sistema.</span></div></div>
+  <div class="phase"><div class="tag nao">— No probado</div><div class="d"><strong>Proveedor de pago, GPU en RunPod y detención real del Pod</strong><span>Dependen de la cuenta y la clave de quien lo use. No se alquiló ninguna GPU de pago para este kit.</span></div></div>
+  <div class="phase"><div class="tag nao">— No probado</div><div class="d"><strong>Harness, MCP y Nuclei instalados</strong><span>La configuración de ejemplo está lista; tú y tu asistente se encargan de instalarlo en cada sistema.</span></div></div>
 </div></section>
 
 <footer>
