@@ -278,10 +278,10 @@
   <p class="sub">They appear at the end of every prompt and in <a href="https://github.com/inematds/ia-sem-censura-defensiva/blob/main/kit/USO-DEFENSIVO.md">USO-DEFENSIVO.md (in Portuguese)</a>. They are required.</p>
   <div class="grid g3">
     <div class="card alerta"><h3>Only what belongs to you</h3><p>Systems you own or have the owner’s written permission to test. A public URL, working login, or API key is not permission.</p></div>
-    <div class="card alerta"><h3>Scope before the first request</h3><p>Exact target, recorded permission, actions, time window, and limits. If anything is missing, expired, or unclear: stop.</p></div>
+    <div class="card alerta"><h3>Scope before the first request</h3><p>Exact target, documented permission, actions, time window, and limits. If anything is missing, expired, or unclear: stop.</p></div>
     <div class="card alerta"><h3>Start with a synthetic lab</h3><p>Made-up data at 127.0.0.1. Run checks that change nothing before anything else.</p></div>
     <div class="card alerta"><h3>Evidence in proportion</h3><p>Use the smallest amount of evidence that confirms a finding. Do not download a database, expose real credentials, or access someone else’s account.</p></div>
-    <div class="card alerta"><h3>Keep credentials out of chat and git</h3><p>Use a private file with chmod 600, referenced through an environment variable. Use test keys and revoke them at the end.</p></div>
+    <div class="card alerta"><h3>Keep credentials out of chat and git</h3><p>Use a private file with chmod 600, pointed to by an environment variable. Use test keys and revoke them at the end.</p></div>
     <div class="card alerta"><h3>A prompt is not a boundary</h3><p>Run a downloaded model without tools first. Isolation comes from the operating system and container, not the prompt text.</p></div>
     <div class="card alerta"><h3>Keep local services on 127.0.0.1</h3><p>An endpoint on your computer must not be open to the network. Always authenticate a cloud endpoint — verify that requests without a key are rejected.</p></div>
     <div class="card alerta"><h3>Stop the Pod and check EXITED</h3><p>Stopping the app does not stop the GPU. Storage keeps charging even when the Pod is stopped.</p></div>
