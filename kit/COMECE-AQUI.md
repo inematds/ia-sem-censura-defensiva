@@ -32,7 +32,7 @@ Prefere ler no papel? O kit inteiro está em [guia-rapido.pdf](guia-rapido.pdf) 
 
 | Pasta / arquivo | Para quê |
 |---|---|
-| `prompts/` | 9 prompts em português, cada um com o bloco FRONTEIRAS |
+| `prompts/` | 10 prompts em português, cada um com o bloco FRONTEIRAS |
 | `guias/` | escolha da rota, as 3 rotas, ferramentas, segurança do modelo, custo, problemas comuns |
 | `config/` | exemplos sem credencial: campos do provedor, MCP, modelos de exemplo, nomes de variáveis |
 | `scripts/doutor.py` | confere o que está instalado, sem instalar nada |

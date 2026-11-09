@@ -106,6 +106,8 @@
   .video{aspect-ratio:16/9;border:1px dashed var(--line);border-radius:14px;display:flex;align-items:center;justify-content:center;color:var(--mut);background:var(--card);text-align:center;padding:20px}
   footer{padding:46px 0;text-align:center;color:var(--mut);font-size:.9rem}
   .pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:.3em .8em;font-size:.78rem;color:var(--mut);margin:4px}
+  #venice th,#venice td{padding:7px 9px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+  #venice th{color:var(--amb);font-weight:600}
 </style>
 </head>
 <body>
@@ -178,10 +180,11 @@
     <span>Your app, with a written scope</span>
   </div>
   <div class="grid g3" style="margin-top:26px">
-    <div class="card"><h3>☁️ Hosted API</h3><p>Fewer steps, no GPU. You pay for API usage (a chat subscription doesn’t include it). Provider examples: Abliteration and OrcaRouter.</p><ul><li>Prompts 01 → 02 → 03 → 09</li></ul></div>
+    <div class="card"><h3>☁️ Hosted API</h3><p>Fewer steps, no GPU. You pay for API usage (a chat subscription doesn’t include it). Provider examples: Venice, Abliteration and OrcaRouter.</p><ul><li>Prompts 01 → 02 → 03 → 09</li><li>Venice: 01 → 10 → 03 → 09</li></ul></div>
     <div class="card"><h3>🖥️ RunPod GPU</h3><p>You choose the model and runtime. You pay for GPU time and storage. Example: Huihui Qwen3.5 9B abliterated Q6_K with a vision projector.</p><ul><li>Prompts 01 → 04 → 05 → 06 → 03 → 09</li></ul></div>
     <div class="card"><h3>💻 LM Studio locally</h3><p>No GPU account needed if your computer can handle it. Example: Huihui Qwen3.6 35B-A3B abliterated Q4_K (~21,7 GB + ~0,9 GB for the projector).</p><ul><li>Prompts 01 → 07 → 08 → 03 → 09</li></ul></div>
   </div>
+  <div class="card" id="venice" style="margin-top:22px;border-left:4px solid var(--amb)"><h3>🌐 Venice route: unfiltered DeepSeek, no GPU</h3><p>Venice serves ready-made unfiltered models through an OpenAI-style API. You create the account, add only the credit you are willing to spend (prepaid credit is your cap) and connect it in the Harness as a <em>Custom model API</em>, base URL <code>https://api.venice.ai/api/v1</code>. Start with DeepSeek V4.1 Flash Uncensored: fast, cheap and with a large context.</p><div style="overflow-x:auto;margin:12px 0"><table style="width:100%;border-collapse:collapse;font-size:.86rem"><thead><tr><th>Model ID</th><th>Input / output (US$ per 1M tokens)</th><th>Context</th><th>Privacy</th></tr></thead><tbody><tr><td><code>deepseek-v4-1-flash-1017-uncensored</code></td><td>0.33 / 1.32</td><td>1M</td><td>Private</td></tr><tr><td><code>e2ee-deepseek-v4-1-flash-1017-abliterated</code></td><td>0.375 / 1.50</td><td>1M</td><td>E2EE</td></tr><tr><td><code>venice-uncensored-1-2</code></td><td>0.20 / 0.90</td><td>128K</td><td>Private</td></tr><tr><td><code>gemma-4-uncensored</code></td><td>0.1625 / 0.50</td><td>256K</td><td>Private</td></tr></tbody></table></div><p><strong>Private</strong>: Venice says it does not store the content. <strong>E2EE</strong>: end-to-end encrypted. Prices read in the public documentation on 11/09/2026; <strong>route not yet tested with an account by INEMA</strong>.</p><p style="margin-top:10px"><strong>The unfiltered model does the work, your subscription checks it.</strong> The Venice model works in a separate folder; your Claude Code or Codex, through your subscription, reviews that folder (reads it, runs the tests, marks what was not tested) before you copy it into the real project.</p><p style="margin-top:10px">Step by step: <a href="https://github.com/inematds/ia-sem-censura-defensiva/blob/main/kit/guias/2b-rota-venice.md">guide 2b-rota-venice.md</a> (in Portuguese) · ready prompt: <a href="https://github.com/inematds/ia-sem-censura-defensiva/blob/main/kit/prompts/10-conectar-venice.txt">10-conectar-venice.txt</a> (in Portuguese)</p></div>
   <p class="mut" style="margin-top:18px;font-size:.9rem">Models and prices checked on Oct 26, 2026. They change: check before downloading or renting.</p>
   <h3 style="margin:30px 0 12px;font-size:1.15rem">Quick glossary</h3>
   <div class="grid g3">

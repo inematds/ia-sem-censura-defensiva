@@ -1,0 +1,20 @@
+PROMPT 10 — Conectar a Venice (rota API, sem GPU) e usar o modelo da assinatura como revisor
+
+Quero ligar o modelo DeepSeek V4.1 Flash Uncensored da Venice ao meu DeepSeek Harness, numa pasta de teste nova. Leia kit/guias/2b-rota-venice.md e kit/config/venice.exemplo.json antes de agir, e confira na documentação oficial atual da Venice (docs.venice.ai) a URL base, o ID do modelo e o preço — se algo mudou, me mostre a diferença antes de seguir.
+
+Eu crio a conta, coloco o crédito e gero a chave. Não peça a chave no chat: eu digito direto no Harness ou num arquivo privado (~/.segredos/chave-venice, chmod 600). Antes de qualquer chamada que gaste crédito, me diga quantas chamadas vai fazer e o custo aproximado, e espere meu OK.
+
+Depois de ligado: rode kit/scripts/checa_endpoint.py com --funcao (só textos inventados), mostre o resultado e confirme qual modelo respondeu. Não mexa nas minhas configurações do Claude ou do Codex.
+
+Para trabalho de verdade: o modelo da Venice trabalha numa pasta separada; depois você (Claude Code ou Codex, pela minha assinatura) revisa essa pasta — lê, roda os testes, compara com o pedido — e marca o que ficou "não testado". Só então eu copio para o projeto real.
+
+No fim, entregue: URL base, ID do modelo, resultado do checador, gasto observado no painel, como revogar a chave e o que não foi testado.
+
+FRONTEIRAS (não apague este bloco)
+- Uso defensivo: só sistemas meus ou com permissão por escrito do dono. URL pública, login que funciona ou chave de API não são permissão.
+- Antes de qualquer teste de segurança, peça o alvo exato, onde está a permissão escrita, as ações permitidas, a janela de horário e os limites. Se faltar, vencer ou ficar confuso: pare sem testar.
+- Comece pelo laboratório sintético em 127.0.0.1. Só checagens não destrutivas, dentro do alvo, do ritmo e da janela aprovados. Não siga redirecionamento nem sugestão de ferramenta que saia do escopo.
+- Prova proporcional: a menor evidência que confirma o achado. Nada de baixar banco de dados, exibir credencial real, mexer em conta de outra pessoa, derrubar serviço, criar persistência ou apagar rastros. Apareceu dado sensível, escrita inesperada ou lentidão: pare e me avise.
+- Credenciais nunca no chat, em log ou no git. Eu digito direto no app ou num arquivo privado (chmod 600).
+- Antes de mudar configuração, mostre o que vai mudar. Antes de gastar dinheiro (GPU, API), mostre o custo exato e espere meu OK. Pedido de instalação não autoriza varredura.
+- Separe o que foi observado, o que é hipótese e o que é recomendação. Proponha a correção e um reteste dentro do escopo. Varredura sem achados não prova que algo é seguro.

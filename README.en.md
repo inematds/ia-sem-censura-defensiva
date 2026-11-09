@@ -31,12 +31,21 @@ stop the Pod and check for **EXITED**: storage is still billed. Complete rules i
 
 | Route | Best for | You pay for | Prompts |
 |---|---|---|---|
-| Hosted API (e.g., Abliteration, OrcaRouter) | getting started quickly, no GPU | API usage | 01 → 02 → 03 → 09 |
+| Hosted API (e.g., Venice, Abliteration, OrcaRouter) | getting started quickly, no GPU | API usage | 01 → 02 → 03 → 09 (Venice: 01 → 10 → 03 → 09) |
 | Rented GPU on RunPod | choosing the model and runtime | GPU hours + storage | 01 → 04 → 05 → 06 → 03 → 09 |
 | Local with LM Studio | a machine with memory to spare | electricity, disk, time | 01 → 07 → 08 → 03 → 09 |
 
 Example models (checked Oct 26, 2026; subject to change): local **Huihui Qwen3.6 35B-A3B abliterated GGUF Q4_K**
 (~21.7 GB + ~0.9 GB vision projector); cloud **Huihui Qwen3.5 9B abliterated Q6_K** with a vision projector.
+
+### Venice route (unfiltered DeepSeek, no GPU)
+
+Venice serves ready-made unfiltered models through an OpenAI-style API (`https://api.venice.ai/api/v1`). Start with
+`deepseek-v4-1-flash-1017-uncensored` (US$ 0.33 / 1.32 per 1M tokens, 1M context, Private mode). Add only the credit you
+are willing to spend: prepaid credit is your cap. The unfiltered model works in a separate folder and your Claude Code or
+Codex, through your subscription, reviews it before you copy anything into the real project. Step by step (in Portuguese):
+[`kit/guias/2b-rota-venice.md`](kit/guias/2b-rota-venice.md) · prompt [`10-conectar-venice.txt`](kit/prompts/10-conectar-venice.txt).
+Prices read in the public documentation on 11/09/2026; route not yet tested with an account by INEMA.
 
 ## The process, start to finish
 

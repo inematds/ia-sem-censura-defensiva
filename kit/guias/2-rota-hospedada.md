@@ -6,7 +6,7 @@
 
 Rode o prompt **01** (Harness pronto) e depois o **02**. Você precisa de uma conta num provedor que aceite
 uso defensivo e sirva um modelo com protocolo compatível com o Harness. Pode haver verificação de
-identidade e cobrança separada da sua assinatura de chat. Exemplos de provedor: Abliteration e OrcaRouter.
+identidade e cobrança separada da sua assinatura de chat. Exemplos de provedor: Venice, Abliteration e OrcaRouter. Para a Venice há um passo a passo próprio: [2b-rota-venice.md](2b-rota-venice.md) (prompt 10).
 Termos, modelos e preços mudam: confira no site de cada um (conferido em 26/10/2026).
 
 ## Conectar

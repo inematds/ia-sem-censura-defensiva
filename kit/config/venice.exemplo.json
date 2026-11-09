@@ -1,0 +1,12 @@
+{
+  "_leia": "Folha de preenchimento para Settings > Models > Custom model API do DeepSeek Harness (rota Venice). Não é arquivo de importação. Conferido na documentação pública da Venice em 09/11/2026.",
+  "id_do_provedor": "venice",
+  "nome_na_tela": "Venice — DeepSeek V4.1 Flash Uncensored",
+  "protocolo": "openai-completions",
+  "url_base": "https://api.venice.ai/api/v1",
+  "id_do_modelo": "deepseek-v4-1-flash-1017-uncensored",
+  "alternativas": ["e2ee-deepseek-v4-1-flash-1017-abliterated", "venice-uncensored-1-2", "gemma-4-uncensored"],
+  "credencial": "digite direto no app ou guarde em ~/.segredos/chave-venice (chmod 600); nunca neste arquivo",
+  "janela_de_contexto": "1000000 segundo a Venice; use menos se o Harness reclamar",
+  "teto_de_gasto": "crédito pré-pago na conta; coloque só o que aceita gastar no teste"
+}

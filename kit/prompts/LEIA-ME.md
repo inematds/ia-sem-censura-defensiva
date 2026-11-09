@@ -1,10 +1,11 @@
 # Prompts do kit
 
-Nove prompts em português, para colar no seu assistente (Claude Code, Codex ou o próprio Harness), na ordem da sua rota:
+Dez prompts em português, para colar no seu assistente (Claude Code, Codex ou o próprio Harness), na ordem da sua rota:
 
 | Rota | Prompts |
 |---|---|
 | API hospedada | 01 → 02 → 03 → 09 |
+| API Venice | 01 → 10 → 03 → 09 |
 | GPU na RunPod | 01 → 04 → 05 → 06 → 03 → 09 |
 | Local no LM Studio | 01 → 07 → 08 → 03 → 09 |
 

@@ -20,11 +20,20 @@ Guía completa (landing + paso a paso): **https://inematds.github.io/ia-sem-cens
 
 | Ruta | Adecuada para | Pagas | Prompts |
 |---|---|---|---|
-| API alojada (p. ej., Abliteration, OrcaRouter) | empezar rápido, sin GPU | uso de la API | 01 → 02 → 03 → 09 |
+| API alojada (p. ej., Venice, Abliteration, OrcaRouter) | empezar rápido, sin GPU | uso de la API | 01 → 02 → 03 → 09 (Venice: 01 → 10 → 03 → 09) |
 | GPU alquilada en RunPod | elegir el modelo y el runtime | hora de GPU + almacenamiento | 01 → 04 → 05 → 06 → 03 → 09 |
 | Local en LM Studio | computadora con memoria disponible | electricidad, disco, tiempo | 01 → 07 → 08 → 03 → 09 |
 
 Modelos de ejemplo (verificados el 26/10/2026; pueden cambiar): local **Huihui Qwen3.6 35B-A3B abliterated GGUF Q4_K** (~21,7 GB + proyector de visión de ~0,9 GB); nube **Huihui Qwen3.5 9B abliterated Q6_K** con proyector de visión.
+
+### Ruta Venice (DeepSeek sin filtro, sin GPU)
+
+Venice sirve modelos sin filtro listos por una API con el estándar de OpenAI (`https://api.venice.ai/api/v1`). Empieza por
+`deepseek-v4-1-flash-1017-uncensored` (US$ 0,33 / 1,32 por 1M tokens, contexto de 1M, modo Private). Carga solo el crédito
+que aceptas gastar: el crédito prepago es el tope. El modelo sin filtro trabaja en una carpeta aparte y tu Claude Code o
+Codex, por la suscripción, lo revisa antes de copiar algo al proyecto real. Paso a paso (en portugués):
+[`kit/guias/2b-rota-venice.md`](kit/guias/2b-rota-venice.md) · prompt [`10-conectar-venice.txt`](kit/prompts/10-conectar-venice.txt).
+Precios leídos en la documentación pública el 09/11/2026; ruta aún no probada con cuenta por INEMA.
 
 ## El proceso, de principio a fin
 

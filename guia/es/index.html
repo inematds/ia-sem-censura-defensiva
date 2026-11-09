@@ -106,6 +106,8 @@
   .video{aspect-ratio:16/9;border:1px dashed var(--line);border-radius:14px;display:flex;align-items:center;justify-content:center;color:var(--mut);background:var(--card);text-align:center;padding:20px}
   footer{padding:46px 0;text-align:center;color:var(--mut);font-size:.9rem}
   .pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:.3em .8em;font-size:.78rem;color:var(--mut);margin:4px}
+  #venice th,#venice td{padding:7px 9px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+  #venice th{color:var(--amb);font-weight:600}
 </style>
 </head>
 <body>
@@ -178,10 +180,11 @@
     <span>Tu app, con alcance</span>
   </div>
   <div class="grid g3" style="margin-top:26px">
-    <div class="card"><h3>☁️ API alojada</h3><p>Menos pasos, sin GPU. Pagas por el uso de la API (no está incluido en la suscripción de chat). Ejemplos de proveedores: Abliteration y OrcaRouter.</p><ul><li>Prompts 01 → 02 → 03 → 09</li></ul></div>
+    <div class="card"><h3>☁️ API alojada</h3><p>Menos pasos, sin GPU. Pagas por el uso de la API (no está incluido en la suscripción de chat). Ejemplos de proveedores: Venice, Abliteration y OrcaRouter.</p><ul><li>Prompts 01 → 02 → 03 → 09</li><li>Venice: 01 → 10 → 03 → 09</li></ul></div>
     <div class="card"><h3>🖥️ GPU en RunPod</h3><p>Tú eliges el modelo y el runtime. Pagas por las horas de GPU y el almacenamiento. Ejemplo: Huihui Qwen3.5 9B abliterated Q6_K con proyector de visión.</p><ul><li>Prompts 01 → 04 → 05 → 06 → 03 → 09</li></ul></div>
     <div class="card"><h3>💻 Local en LM Studio</h3><p>Sin cuenta de GPU, si tu computadora puede con ello. Ejemplo: Huihui Qwen3.6 35B-A3B abliterated Q4_K (~21,7 GB + ~0,9 GB de proyector).</p><ul><li>Prompts 01 → 07 → 08 → 03 → 09</li></ul></div>
   </div>
+  <div class="card" id="venice" style="margin-top:22px;border-left:4px solid var(--amb)"><h3>🌐 Ruta Venice: DeepSeek sin filtro, sin GPU</h3><p>Venice sirve modelos sin filtro listos para usar, por una API con el estándar de OpenAI. Creas la cuenta, cargas solo el crédito que aceptas gastar (el crédito prepago es el tope) y lo conectas en el Harness como <em>Custom model API</em>, URL base <code>https://api.venice.ai/api/v1</code>. Empieza por DeepSeek V4.1 Flash Uncensored: rápido, barato y con contexto grande.</p><div style="overflow-x:auto;margin:12px 0"><table style="width:100%;border-collapse:collapse;font-size:.86rem"><thead><tr><th>ID del modelo</th><th>Entrada / salida (US$ por 1M tokens)</th><th>Contexto</th><th>Privacidad</th></tr></thead><tbody><tr><td><code>deepseek-v4-1-flash-1017-uncensored</code></td><td>0,33 / 1,32</td><td>1M</td><td>Private</td></tr><tr><td><code>e2ee-deepseek-v4-1-flash-1017-abliterated</code></td><td>0,375 / 1,50</td><td>1M</td><td>E2EE</td></tr><tr><td><code>venice-uncensored-1-2</code></td><td>0,20 / 0,90</td><td>128K</td><td>Private</td></tr><tr><td><code>gemma-4-uncensored</code></td><td>0,1625 / 0,50</td><td>256K</td><td>Private</td></tr></tbody></table></div><p><strong>Private</strong>: Venice dice que no guarda el contenido. <strong>E2EE</strong>: cifrado de extremo a extremo. Precios leídos en la documentación pública el 09/11/2026; <strong>ruta aún no probada con cuenta por INEMA</strong>.</p><p style="margin-top:10px"><strong>El modelo sin filtro hace el trabajo, tu suscripción lo revisa.</strong> El modelo de Venice trabaja en una carpeta aparte; tu Claude Code o Codex, por la suscripción, revisa esa carpeta (lee, ejecuta las pruebas, marca lo que quedó sin probar) antes de que lo copies al proyecto real.</p><p style="margin-top:10px">Paso a paso: <a href="https://github.com/inematds/ia-sem-censura-defensiva/blob/main/kit/guias/2b-rota-venice.md">guía 2b-rota-venice.md</a> (en portugués) · prompt listo: <a href="https://github.com/inematds/ia-sem-censura-defensiva/blob/main/kit/prompts/10-conectar-venice.txt">10-conectar-venice.txt</a> (en portugués)</p></div>
   <p class="mut" style="margin-top:18px;font-size:.9rem">Modelos y precios comprobados el 26/10/2026. Pueden cambiar: compruébalos antes de descargar o alquilar.</p>
   <h3 style="margin:30px 0 12px;font-size:1.15rem">Glosario rápido</h3>
   <div class="grid g3">
